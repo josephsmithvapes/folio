@@ -531,8 +531,8 @@ function Contact() {
         </Reveal>
 
         <Reveal delay={100}>
-          <p style={{ fontFamily: "Georgia,serif", color: "#7a7570", fontSize: isMobile ? "0.88rem" : "1rem", lineHeight: 1.75, maxWidth: "520px", marginBottom: "2rem", textAlign: "center" }}>
-            Targeting GM, Operations Director, and Didtrict Leadership roles in Seattle, Tacoma, Olympia, and Bend. Open to conversations now — relocating in 2026.
+          <p style={{ fontFamily: "Georgia,serif", color: "#7a7570", fontSize: isMobile ? "0.88rem" : "1rem", lineHeight: 1.75, maxWidth: "520px", marginBottom: "2rem", textAlign: "center", margin: "0 auto 2rem" }}>
+            Seeking GM, Operations, & District Leadership roles in Seattle, Tacoma, Olympia, & Bend. Open to conversations now — relocating in 2026.
           </p>
         </Reveal>
 
