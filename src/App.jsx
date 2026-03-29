@@ -174,8 +174,8 @@ function Hero() {
     <section id="hero" style={{ minHeight: "100vh", background: C.bg, display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" }}>
       {/* Top bar */}
       <div style={{ background: C.ink, padding: "0.6rem 1.5rem", display: "flex", justifyContent: "center", alignItems: "center", flexWrap: "wrap", gap: "0.3rem" }}>
-        <span style={{ fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Sky Madsen · Portfolio</span>
-        {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: C.muted, fontSize: "0.5rem", letterSpacing: "0.12em" }}>Operations · People · Pacific Northwest</span>}
+        <span style={{ fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Sky Madsen · 2026</span>
+        {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: C.muted, fontSize: "0.5rem", letterSpacing: "0.12em" }}>Operations · Sales · Hospitality</span>}
       </div>
 
       {/* Hero grid — stacks on mobile */}
@@ -209,11 +209,11 @@ function Hero() {
           <div style={{ opacity: v ? 1 : 0, transition: "opacity 0.8s ease 0.5s", marginTop: isMobile ? "1.5rem" : 0 }}>
             <div style={{ height: "4px", background: C.ink, marginBottom: "0.8rem" }} />
             <p style={{ fontFamily: "Georgia,serif", fontSize: isMobile ? "0.82rem" : "0.85rem", color: "#555", lineHeight: 1.7, maxWidth: "380px" }}>
-              20+ years turning complex operations into high-performance culture. GM. Team builder. Builder of AI tools. Heading to the Pacific Northwest.
+              20+ years turning complex operations into high-performance culture. Team Player. Purpose Driven Leadership.⁸
             </p>
             <div style={{ display: "flex", gap: "0.8rem", marginTop: "1.2rem", flexWrap: "wrap" }}>
               <a href="#contact" style={{ textDecoration: "none", padding: isMobile ? "0.7rem 1.5rem" : "0.8rem 2rem", background: C.green, color: C.bg, fontFamily: "'Arial Black',sans-serif", fontSize: "0.6rem", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 900 }}>Hire Me →</a>
-              <a href="#experience" style={{ textDecoration: "none", padding: isMobile ? "0.7rem 1.5rem" : "0.8rem 2rem", border: `3px solid ${C.ink}`, color: C.ink, fontFamily: "'Arial Black',sans-serif", fontSize: "0.6rem", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 900 }}>View Record</a>
+              <a href="#experience" style={{ textDecoration: "none", padding: isMobile ? "0.7rem 1.5rem" : "0.8rem 2rem", border: `3px solid ${C.ink}`, color: C.ink, fontFamily: "'Arial Black',sans-serif", fontSize: "0.6rem", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 900 }}>Experience</a>
             </div>
           </div>
         </div>
@@ -224,7 +224,7 @@ function Hero() {
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
               <div style={{ width: isTablet ? "100px" : "130px", height: isTablet ? "100px" : "130px", borderRadius: "50%", border: `4px solid ${C.green}`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
                 <div style={{ fontFamily: "'Arial Black',sans-serif", fontSize: "0.35rem", letterSpacing: "0.22em", textTransform: "uppercase", color: C.green, textAlign: "center", lineHeight: 2.1 }}>
-                  PNW<br />BOUND<br />✦ 2025 ✦
+                  Fellow<br />Traveler<br />✦ 2025 ✦
                 </div>
               </div>
             </div>
