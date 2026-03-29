@@ -173,7 +173,7 @@ function Hero() {
   return (
     <section id="hero" style={{ minHeight: "100vh", background: C.bg, display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" }}>
       {/* Top bar */}
-      <div style={{ background: C.ink, padding: "0.6rem 1.5rem", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.3rem" }}>
+      <div style={{ background: C.ink, padding: "0.6rem 1.5rem", display: "flex", justifyContent: "center", alignItems: "center", flexWrap: "wrap", gap: "0.3rem" }}>
         <span style={{ fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Sky Madsen · Portfolio</span>
         {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: C.muted, fontSize: "0.5rem", letterSpacing: "0.12em" }}>Operations · People · Pacific Northwest</span>}
       </div>
