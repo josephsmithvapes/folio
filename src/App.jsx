@@ -531,17 +531,17 @@ function Contact() {
         </Reveal>
 
         <Reveal delay={100}>
-          <p style={{ fontFamily: "Georgia,serif", color: "#7a7570", fontSize: isMobile ? "0.88rem" : "1rem", lineHeight: 1.75, maxWidth: "520px", marginBottom: "2rem" }}>
-            Targeting GM, Operations Director, and Regional Leadership roles in Seattle, Tacoma, Olympia, and Bend. Open to conversations now — relocating in 2025.
+          <p style={{ fontFamily: "Georgia,serif", color: "#7a7570", fontSize: isMobile ? "0.88rem" : "1rem", lineHeight: 1.75, maxWidth: "520px", marginBottom: "2rem", textAlign: "center" }}>
+            Targeting GM, Operations Director, and Didtrict Leadership roles in Seattle, Tacoma, Olympia, and Bend. Open to conversations now — relocating in 2026.
           </p>
         </Reveal>
 
         <Reveal delay={180}>
           <div style={{ display: "flex", gap: "0.8rem", flexWrap: "wrap" }}>
             {[
-              { label: "LinkedIn", href: "https://linkedin.com/in/skymadsen" },
+              { label: "LinkedIn", href: "https://linkedin.com/in/moleculardeveloper" },
               { label: "GitHub", href: "https://github.com/josephsmithvapes" },
-              { label: "Email", href: "mailto:sky@skymadsen.com" },
+              { label: "Email", href: "mailto:verifiedbysky@gmail.com" },
             ].map(link => (
               <a key={link.label} href={link.href} style={{
                 textDecoration: "none",
