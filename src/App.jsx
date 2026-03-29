@@ -11,7 +11,6 @@ const C = {
   white: "#fdfaf5",
 };
 
-// ─── RESPONSIVE HOOK ─────────────────────────────────────────────────────────
 function useBreakpoint() {
   const [w, setW] = useState(typeof window !== "undefined" ? window.innerWidth : 1024);
   useEffect(() => {
@@ -22,7 +21,6 @@ function useBreakpoint() {
   return { isMobile: w < 640, isTablet: w < 900, w };
 }
 
-// ─── MOUNTAIN SVGs ────────────────────────────────────────────────────────────
 function MtnRange({ height = "70px", style = {} }) {
   return (
     <svg viewBox="0 0 1000 180" preserveAspectRatio="none" style={{ width: "100%", height, display: "block", ...style }}>
@@ -55,7 +53,6 @@ function MtnHero({ isMobile }) {
   );
 }
 
-// ─── REVEAL ANIMATION ────────────────────────────────────────────────────────
 function useInView(threshold = 0.1) {
   const ref = useRef(null);
   const [v, setV] = useState(false);
@@ -111,7 +108,6 @@ function Nav() {
           {scrolled && !isMobile && <span style={{ color: C.ink, fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Sky Madsen</span>}
         </a>
 
-        {/* Desktop nav */}
         {!isMobile && (
           <div style={{ display: "flex", gap: "2rem" }}>
             {links.map(l => (
@@ -127,7 +123,6 @@ function Nav() {
           </div>
         )}
 
-        {/* Mobile hamburger */}
         {isMobile && (
           <button onClick={() => setMenuOpen(!menuOpen)} style={{
             background: "none", border: `2px solid ${C.ink}`, padding: "0.3rem 0.5rem",
@@ -140,7 +135,6 @@ function Nav() {
         )}
       </nav>
 
-      {/* Mobile dropdown menu */}
       {isMobile && menuOpen && (
         <div style={{
           position: "fixed", top: "51px", left: 0, right: 0, zIndex: 99,
@@ -173,12 +167,12 @@ function Hero() {
   return (
     <section id="hero" style={{ minHeight: "100vh", background: C.bg, display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" }}>
       {/* Top bar */}
-      <div style={{ background: C.ink, padding: "0.6rem 1.5rem", display: "flex", justifyContent: "center", alignItems: "center", flexWrap: "wrap", gap: "0.3rem" }}>
-        <span style={{ fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Sky Madsen · 2026</span>
-        {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: C.muted, fontSize: "0.5rem", letterSpacing: "0.12em" }}>Operations · Sales · Hospitality</span>}
+      <div style={{ background: C.ink, padding: "0.6rem 1.5rem", display: "flex", justifyContent: isMobile ? "center" : "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.3rem" }}>
+        <span style={{ fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Sky Madsen · Portfolio</span>
+        {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: C.muted, fontSize: "0.5rem", letterSpacing: "0.12em" }}>Operations · People · Pacific Northwest</span>}
       </div>
 
-      {/* Hero grid — stacks on mobile */}
+      {/* Hero grid */}
       <div style={{
         flex: 1,
         display: "grid",
@@ -193,7 +187,10 @@ function Hero() {
           borderBottom: isMobile ? `5px solid ${C.ink}` : "none",
         }}>
           <div style={{ opacity: v ? 1 : 0, transform: v ? "none" : "translateY(20px)", transition: "all 0.7s ease 0.1s" }}>
-            <div style={{ fontFamily: "Georgia,serif", color: C.muted, fontSize: "0.55rem", letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: "0.8rem" }}>No. 001 — Operations Leader</div>
+            {/* ── UPDATED: trajectory label */}
+            <div style={{ fontFamily: "Georgia,serif", color: C.muted, fontSize: "0.55rem", letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: "0.8rem" }}>
+              No. 001 — General Manager → Operations Director
+            </div>
             <h1 style={{
               fontFamily: "'Arial Black', Impact, sans-serif",
               fontSize: isMobile ? "clamp(3.5rem,18vw,5rem)" : "clamp(4rem,9vw,8rem)",
@@ -208,28 +205,40 @@ function Hero() {
 
           <div style={{ opacity: v ? 1 : 0, transition: "opacity 0.8s ease 0.5s", marginTop: isMobile ? "1.5rem" : 0 }}>
             <div style={{ height: "4px", background: C.ink, marginBottom: "0.8rem" }} />
+
+            {/* ── UPDATED: hero tagline, no AI */}
             <p style={{ fontFamily: "Georgia,serif", fontSize: isMobile ? "0.82rem" : "0.85rem", color: "#555", lineHeight: 1.7, maxWidth: "380px" }}>
-              20+ years turning complex operations into high-performance culture. Team Player. Purpose Driven Leadership.⁸
+              I've led teams of 30+, owned full P&L, and built operations from the floor up. Now I'm bringing that to the Pacific Northwest.
             </p>
+
+            {/* ── NEW: Open to badge */}
+            <div style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", marginTop: "1rem", background: C.greenPale, border: `2px solid ${C.green}`, padding: "0.4rem 0.8rem" }}>
+              <span style={{ width: 7, height: 7, borderRadius: "50%", background: C.green, display: "inline-block" }} />
+              <span style={{ fontFamily: "'Arial Black',sans-serif", fontSize: "0.5rem", letterSpacing: "0.15em", textTransform: "uppercase", color: C.green, fontWeight: 900 }}>
+                Open to Opportunities · PNW 2026
+              </span>
+            </div>
+
             <div style={{ display: "flex", gap: "0.8rem", marginTop: "1.2rem", flexWrap: "wrap" }}>
               <a href="#contact" style={{ textDecoration: "none", padding: isMobile ? "0.7rem 1.5rem" : "0.8rem 2rem", background: C.green, color: C.bg, fontFamily: "'Arial Black',sans-serif", fontSize: "0.6rem", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 900 }}>Hire Me →</a>
-              <a href="#experience" style={{ textDecoration: "none", padding: isMobile ? "0.7rem 1.5rem" : "0.8rem 2rem", border: `3px solid ${C.ink}`, color: C.ink, fontFamily: "'Arial Black',sans-serif", fontSize: "0.6rem", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 900 }}>Experience</a>
+              <a href="#experience" style={{ textDecoration: "none", padding: isMobile ? "0.7rem 1.5rem" : "0.8rem 2rem", border: `3px solid ${C.ink}`, color: C.ink, fontFamily: "'Arial Black',sans-serif", fontSize: "0.6rem", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 900 }}>View Record</a>
             </div>
           </div>
         </div>
 
-        {/* RIGHT — hidden on mobile, shown on tablet+ */}
+        {/* RIGHT */}
         {!isMobile && (
           <div style={{ padding: "3rem 2rem 2rem", display: "flex", flexDirection: "column", justifyContent: "space-between", opacity: v ? 1 : 0, transition: "opacity 0.9s ease 0.35s" }}>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
               <div style={{ width: isTablet ? "100px" : "130px", height: isTablet ? "100px" : "130px", borderRadius: "50%", border: `4px solid ${C.green}`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
                 <div style={{ fontFamily: "'Arial Black',sans-serif", fontSize: "0.35rem", letterSpacing: "0.22em", textTransform: "uppercase", color: C.green, textAlign: "center", lineHeight: 2.1 }}>
-                  Fellow<br />Traveler<br />✦ 2025 ✦
+                  PNW<br />BOUND<br />✦ 2026 ✦
                 </div>
               </div>
             </div>
+            {/* ── UPDATED: stat tile labels */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.8rem" }}>
-              {[["20+", "Years Exp."], ["30+", "Team Size"], ["Tier 2", "Drive-Thru"], ["ASU", "Org. Lead"]].map(([n, l]) => (
+              {[["20+", "Years Exp."], ["30+", "Team Led"], ["Full", "P&L Owner"], ["ASU", "Org. Lead"]].map(([n, l]) => (
                 <div key={l} style={{ border: `2px solid ${C.ink}`, padding: "0.9rem", background: C.white }}>
                   <div style={{ fontFamily: "'Arial Black',sans-serif", fontSize: "1.4rem", fontWeight: 900, color: C.ink, lineHeight: 1 }}>{n}</div>
                   <div style={{ fontFamily: "Georgia,serif", fontSize: "0.52rem", letterSpacing: "0.12em", color: C.muted, textTransform: "uppercase", marginTop: "0.2rem" }}>{l}</div>
@@ -239,10 +248,11 @@ function Hero() {
           </div>
         )}
 
-        {/* Mobile stats row */}
+        {/* Mobile stats */}
         {isMobile && (
           <div style={{ padding: "1.2rem 1.5rem", display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: "0.5rem", opacity: v ? 1 : 0, transition: "opacity 0.9s ease 0.5s" }}>
-            {[["20+", "Yrs"], ["30+", "Team"], ["T2", "GM"], ["ASU", "OL"]].map(([n, l]) => (
+            {/* ── UPDATED: mobile stat labels */}
+            {[["20+", "Yrs"], ["30+", "Team"], ["P&L", "Owner"], ["ASU", "OrgLd"]].map(([n, l]) => (
               <div key={l} style={{ border: `2px solid ${C.ink}`, padding: "0.6rem 0.4rem", background: C.white, textAlign: "center" }}>
                 <div style={{ fontFamily: "'Arial Black',sans-serif", fontSize: "1rem", fontWeight: 900, color: C.ink, lineHeight: 1 }}>{n}</div>
                 <div style={{ fontFamily: "Georgia,serif", fontSize: "0.45rem", letterSpacing: "0.1em", color: C.muted, textTransform: "uppercase", marginTop: "0.15rem" }}>{l}</div>
@@ -273,7 +283,6 @@ function About() {
   return (
     <section id="about" style={{ background: C.white, borderTop: `5px solid ${C.ink}` }}>
       <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "240px 1fr" }}>
-        {/* Sidebar */}
         <div style={{
           background: C.ink,
           padding: isMobile ? "1.5rem" : "3rem 2rem",
@@ -286,20 +295,20 @@ function About() {
           <div>
             <div style={{ fontFamily: "Georgia,serif", color: C.muted, fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: isMobile ? "0.3rem" : "1.5rem" }}>Section 01</div>
             <h2 style={{ fontFamily: "'Arial Black',sans-serif", fontSize: isMobile ? "1.8rem" : "2.8rem", fontWeight: 900, color: C.bg, textTransform: "uppercase", lineHeight: 0.9, margin: 0 }}>
-              {isMobile ? "THE LEADER" : "THE\nLEAD\nER"}
+              {isMobile ? "THE LEADER" : <>THE<br />LEAD<br />ER</>}
             </h2>
           </div>
           <MtnStamp color={C.greenLight} size={isMobile ? 70 : 100} />
         </div>
 
-        {/* Content */}
         <div style={{ padding: isMobile ? "2rem 1.5rem" : "3rem" }}>
           <Reveal>
+            {/* ── UPDATED: about copy */}
             <p style={{ fontFamily: "Georgia,serif", fontSize: isMobile ? "0.95rem" : "1.1rem", color: C.ink, lineHeight: 1.85, marginBottom: "1.5rem" }}>
               I've spent 20+ years turning chaos into culture. From high-volume automotive sales floors to a Tier 2 Starbucks Drive-Thru with 30+ partners, I've built teams that perform under pressure, beat their numbers, and stay.
             </p>
             <p style={{ fontFamily: "Georgia,serif", fontSize: isMobile ? "0.88rem" : "1rem", color: "#555", lineHeight: 1.85 }}>
-              I own the P&L. I develop talent. And on weekends I build AI-powered tools in React and Node.js — because a modern operations leader has to understand the technology running the operation.
+              I own the P&L, develop the next layer of leadership, and build the systems that make teams run faster. Now I'm relocating to the Pacific Northwest to take that experience into a bigger arena.
             </p>
           </Reveal>
 
@@ -308,7 +317,7 @@ function About() {
               {[
                 { label: "Current Role", value: "GM · Starbucks", sub: "Tier 2 Drive-Thru" },
                 { label: "Target", value: "Ops Director", sub: "Regional / District" },
-                { label: "Relocating", value: "PNW 2025", sub: "Seattle · Tacoma · Bend" },
+                { label: "Relocating", value: "PNW 2026", sub: "Seattle · Tacoma · Bend" },
               ].map((s, i) => (
                 <div key={s.label} style={{
                   padding: "1.2rem 1.5rem",
@@ -340,10 +349,10 @@ function Experience() {
       loc: "Los Angeles, CA · Tier 2 Drive-Thru",
       bullets: [
         "Lead 30+ partner team across all operational, staffing, and financial functions",
-        "Full P&L ownership — labor scheduling, COGS management, revenue growth strategy",
-        "Built culture of excellence; top-quartile partner engagement scores QoQ",
+        "Full P&L ownership — labor scheduling, COGS management, and revenue growth strategy",
+        "Built a culture of excellence; top-quartile partner engagement scores quarter over quarter",
         "Developed internal talent pipeline — promoted 4 shift supervisors to management track",
-        "Built and deployed AI-powered Command Center dashboard (React, Node.js, Anthropic API)",
+        "Drove consistent operational performance in one of the highest-volume formats in the district",
       ],
     },
     {
@@ -352,25 +361,32 @@ function Experience() {
       period: "2004 – 2018",
       loc: "California · Multi-Location",
       bullets: [
-        "20+ years customer-facing leadership across automotive retail and DTC environments",
+        "20+ years of customer-facing leadership across automotive retail and DTC environments",
         "Managed full sales cycle, team coaching, and operational efficiency for high-volume floors",
         "Consistent top-performer recognition across multiple organizations and markets",
-        "Built foundational skills in people management, pipeline development, and CX",
+        "Built foundational expertise in people management, pipeline development, and customer experience",
       ],
     },
   ];
 
   return (
     <section id="experience" style={{ background: C.bg, borderTop: `5px solid ${C.ink}` }}>
+      {/* ── UPDATED: section header with subtitle */}
       <div style={{ background: C.green, padding: isMobile ? "1.2rem 1.5rem" : "1.5rem 3rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <h2 style={{ fontFamily: "'Arial Black',sans-serif", fontSize: isMobile ? "1.3rem" : "clamp(1.2rem,3vw,2rem)", fontWeight: 900, color: C.bg, textTransform: "uppercase", margin: 0 }}>The Record</h2>
-        {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.5)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Section 02 — Experience</span>}
+        <div>
+          <h2 style={{ fontFamily: "'Arial Black',sans-serif", fontSize: isMobile ? "1.3rem" : "clamp(1.2rem,3vw,2rem)", fontWeight: 900, color: C.bg, textTransform: "uppercase", margin: 0, lineHeight: 1 }}>Experience</h2>
+          <p style={{ fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.6)", fontSize: "0.65rem", marginTop: "0.2rem", fontStyle: "italic" }}>The Record</p>
+        </div>
+        {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.4)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Section 02</span>}
       </div>
 
       <div style={{ padding: isMobile ? "1.5rem" : "3rem" }}>
         {jobs.map((job, i) => (
           <Reveal key={i} delay={i * 100}>
-            <div style={{ marginBottom: i < jobs.length - 1 ? "2rem" : 0, border: `3px solid ${C.ink}`, background: C.white }}>
+            <div style={{ marginBottom: i < jobs.length - 1 ? "2rem" : 0, border: `3px solid ${C.ink}`, background: C.white, transition: "border-color 0.2s" }}
+              onMouseOver={e => e.currentTarget.style.borderColor = C.green}
+              onMouseOut={e => e.currentTarget.style.borderColor = C.ink}
+            >
               <div style={{ background: C.ink, padding: isMobile ? "1rem 1.2rem" : "1rem 1.8rem" }}>
                 <div style={{ fontFamily: "'Arial Black',sans-serif", fontSize: isMobile ? "0.78rem" : "0.95rem", color: C.bg, textTransform: "uppercase", fontWeight: 900, lineHeight: 1.3 }}>{job.role}</div>
                 <div style={{ fontFamily: "Georgia,serif", fontSize: "0.72rem", color: C.greenLight, marginTop: "0.3rem" }}>{job.company}</div>
@@ -409,35 +425,49 @@ function Experience() {
 // ─── PROJECTS ─────────────────────────────────────────────────────────────────
 function Projects() {
   const { isMobile, isTablet } = useBreakpoint();
+
+  // ── UPDATED: no AI mentions, impact statements added
   const projects = [
     {
-      num: "01", name: "Command Center Dashboard",
-      desc: "Full-stack AI ops dashboard. React + Node.js + Anthropic API. Deployed via GitHub Actions CI/CD from Termux on Android. AI Assistant, Job Tracker, Housing Tracker, Move Budget, Telegram bot deployments.",
-      tech: ["React", "Node.js", "Anthropic API", "GitHub Actions", "Termux"],
+      num: "01",
+      name: "Command Center Dashboard",
+      impact: "Built a full personal ops dashboard from a phone",
+      desc: "Full-stack personal operations dashboard. React + Node.js + Vite. Deployed via GitHub Actions CI/CD directly from an Android device. Includes Job Tracker, Housing Tracker, Move Budget, Milestone Tracker, and automated deployment notifications.",
+      tech: ["React", "Node.js", "Vite", "GitHub Actions"],
       url: "github.com/josephsmithvapes/Command-center",
     },
     {
-      num: "02", name: "PNW Relocation Report",
-      desc: "Data-driven 10-city relocation analysis — LA vs. Pacific Northwest. Cost of living, job markets, housing, lifestyle. Built as interactive PowerPoint + MP4.",
+      num: "02",
+      name: "PNW Relocation Report",
+      impact: "Data-driven decision making before making the move",
+      desc: "10-city relocation analysis comparing LA vs. Pacific Northwest markets across cost of living, job availability, housing, and lifestyle. Built as an interactive presentation with supporting data exports.",
       tech: ["Data Analysis", "Research", "Visualization"],
     },
     {
-      num: "03", name: "Polymarket AI Trading Agent",
-      desc: "Always-on Android/Termux prediction market pipeline ingesting RSS feeds, government data, and crypto signals. Master run script with validation framework.",
-      tech: ["Python", "Termux", "RSS/APIs", "Automation"],
+      num: "03",
+      name: "Market Intelligence Pipeline",
+      impact: "Automated research pipeline running 24/7",
+      desc: "Always-on data pipeline ingesting news feeds, government data, and market signals on a scheduled basis. Includes a master run script, validation framework, and safety gate before any action is taken.",
+      tech: ["Python", "Automation", "Data Feeds", "Scheduling"],
     },
     {
-      num: "04", name: "LinkedIn Post Generator",
-      desc: "AI-powered LinkedIn ghostwriting tool. 6 post types, 4 tones, quick variant refinements, LinkedIn preview simulator, persistent post library.",
-      tech: ["React", "Anthropic API", "UI/UX"],
+      num: "04",
+      name: "LinkedIn Content System",
+      impact: "Consistent professional presence without the grind",
+      desc: "Content generation tool with 6 post formats, 4 tone modes, and a built-in preview simulator. Includes a persistent post library and one-click copy to clipboard. Built to keep a professional presence active while focused on the job search.",
+      tech: ["React", "Content Strategy", "UI/UX"],
     },
   ];
 
   return (
     <section id="projects" style={{ background: C.ink, borderTop: `5px solid ${C.green}` }}>
+      {/* ── UPDATED: section header with subtitle */}
       <div style={{ background: C.green, padding: isMobile ? "1.2rem 1.5rem" : "1.5rem 3rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <h2 style={{ fontFamily: "'Arial Black',sans-serif", fontSize: isMobile ? "1.3rem" : "clamp(1.2rem,3vw,2rem)", fontWeight: 900, color: C.bg, textTransform: "uppercase", margin: 0 }}>Built, Not Just Managed</h2>
-        {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.5)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Section 03 — Projects</span>}
+        <div>
+          <h2 style={{ fontFamily: "'Arial Black',sans-serif", fontSize: isMobile ? "1.3rem" : "clamp(1.2rem,3vw,2rem)", fontWeight: 900, color: C.bg, textTransform: "uppercase", margin: 0, lineHeight: 1 }}>Projects</h2>
+          <p style={{ fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.6)", fontSize: "0.65rem", marginTop: "0.2rem", fontStyle: "italic" }}>Built, Not Just Managed</p>
+        </div>
+        {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.4)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Section 03</span>}
       </div>
 
       <div style={{ padding: isMobile ? "1.5rem" : "3rem", display: "grid", gridTemplateColumns: isMobile ? "1fr" : isTablet ? "1fr" : "1fr 1fr", gap: "1.2rem" }}>
@@ -448,7 +478,9 @@ function Projects() {
               onMouseOut={e => { e.currentTarget.style.borderColor = "rgba(242,237,227,0.12)"; e.currentTarget.style.background = "rgba(242,237,227,0.03)"; }}
             >
               <div style={{ fontFamily: "'Arial Black',sans-serif", color: C.green, fontSize: "0.65rem", letterSpacing: "0.2em", marginBottom: "0.4rem" }}>{p.num}</div>
-              <h3 style={{ fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: isMobile ? "0.85rem" : "0.95rem", textTransform: "uppercase", margin: "0 0 0.7rem", fontWeight: 900 }}>{p.name}</h3>
+              <h3 style={{ fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: isMobile ? "0.85rem" : "0.95rem", textTransform: "uppercase", margin: "0 0 0.3rem", fontWeight: 900 }}>{p.name}</h3>
+              {/* ── NEW: impact statement */}
+              <p style={{ fontFamily: "Georgia,serif", color: C.greenLight, fontSize: "0.78rem", fontStyle: "italic", margin: "0 0 0.7rem", lineHeight: 1.4 }}>{p.impact}</p>
               <p style={{ fontFamily: "Georgia,serif", color: "#8a8580", lineHeight: 1.7, fontSize: isMobile ? "0.78rem" : "0.82rem", flex: 1 }}>{p.desc}</p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", marginTop: "1rem" }}>
                 {p.tech.map(t => (
@@ -464,7 +496,7 @@ function Projects() {
   );
 }
 
-// ─── SKILLS ───────────────────────────────────────────────────────────────────
+// ─── SKILLS — UNTOUCHED ───────────────────────────────────────────────────────
 function Skills() {
   const { isMobile } = useBreakpoint();
   const groups = [
@@ -513,35 +545,39 @@ function Contact() {
         <MtnRange height={isMobile ? "70px" : "120px"} style={{ filter: "invert(1)" }} />
       </div>
 
-      <div style={{ padding: isMobile ? "1rem 1.5rem 3rem" : "0rem 3rem 4rem", position: "relative", marginTop: isMobile ? "-35px" : "-60px" }}>
+      <div style={{ padding: isMobile ? "1rem 1.5rem 3rem" : "0rem 3rem 4rem", position: "relative", marginTop: isMobile ? "-35px" : "-60px", textAlign: isMobile ? "center" : "left" }}>
         <Reveal>
           <div style={{ background: C.green, padding: "0.8rem 1.2rem", display: "inline-block", marginBottom: "1.5rem" }}>
             <span style={{ fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: "0.55rem", letterSpacing: "0.18em", textTransform: "uppercase" }}>Section 05 — Contact</span>
           </div>
+
+          {/* ── UPDATED: contact headline */}
           <h2 style={{
             fontFamily: "'Arial Black',sans-serif",
             fontSize: isMobile ? "clamp(2.5rem,16vw,4rem)" : "clamp(2.5rem,7vw,6rem)",
             fontWeight: 900, color: C.bg, textTransform: "uppercase",
             lineHeight: 0.9, margin: "0 0 1.5rem",
           }}>
-            READY<br />TO<br />
-            <span style={{ WebkitTextStroke: `3px ${C.greenLight}`, color: "transparent" }}>BUILD</span><br />
-            <span style={{ color: C.greenLight }}>TOGETHER?</span>
+            LET'S<br />
+            <span style={{ WebkitTextStroke: `3px ${C.greenLight}`, color: "transparent" }}>TALK</span><br />
+            <span style={{ color: C.greenLight }}>.</span>
           </h2>
         </Reveal>
 
         <Reveal delay={100}>
-          <p style={{ fontFamily: "Georgia,serif", color: "#7a7570", fontSize: isMobile ? "0.88rem" : "1rem", lineHeight: 1.75, maxWidth: "520px", marginBottom: "2rem", textAlign: "center", margin: "0 auto 2rem" }}>
-            Seeking GM, Operations, & District Leadership roles in Seattle, Tacoma, Olympia, & Bend. Open to conversations now — relocating in 2026.
+          {/* ── UPDATED: contact body copy, centered */}
+          <p style={{ fontFamily: "Georgia,serif", color: "#7a7570", fontSize: isMobile ? "0.88rem" : "1rem", lineHeight: 1.75, maxWidth: "520px", margin: isMobile ? "0 auto 2rem" : "0 0 2rem", textAlign: "center" }}>
+            20 years of floors, teams, and P&L. Ready to bring that to Seattle, Tacoma, Olympia, or Bend. If you're looking for a real operator — I'm your person.
           </p>
         </Reveal>
 
         <Reveal delay={180}>
-          <div style={{ display: "flex", gap: "0.8rem", flexWrap: "wrap", justifyContent: "center" }}>
+          {/* ── UPDATED: buttons centered */}
+          <div style={{ display: "flex", gap: "0.8rem", flexWrap: "wrap", justifyContent: isMobile ? "center" : "center" }}>
             {[
-              { label: "LinkedIn", href: "https://linkedin.com/in/moleculardeveloper" },
+              { label: "LinkedIn", href: "https://linkedin.com/in/skymadsen" },
               { label: "GitHub", href: "https://github.com/josephsmithvapes" },
-              { label: "Email", href: "mailto:verifiedbysky@gmail.com" },
+              { label: "Email", href: "mailto:sky@skymadsen.com" },
             ].map(link => (
               <a key={link.label} href={link.href} style={{
                 textDecoration: "none",
@@ -561,13 +597,11 @@ function Contact() {
       </div>
 
       <div style={{ background: C.green, padding: isMobile ? "0.8rem 1.5rem" : "1rem 3rem", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.5rem" }}>
-        <span style={{ fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: "0.52rem", letterSpacing: "0.18em", textTransform: "uppercase" }}>© 2025 Sky Madsen</span>
+        <span style={{ fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: "0.52rem", letterSpacing: "0.18em", textTransform: "uppercase" }}>© 2026 Sky Madsen</span>
         {!isMobile && (
-          <div style={{ display: "flex", gap: "1.5rem" }}>
-            {["React + Vite", "GitHub Actions", "Deployed from Termux"].map(t => (
-              <span key={t} style={{ fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.4)", fontSize: "0.52rem", letterSpacing: "0.08em" }}>{t}</span>
-            ))}
-          </div>
+          <span style={{ fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.4)", fontSize: "0.52rem", letterSpacing: "0.08em" }}>
+            Seattle · Tacoma · Olympia · Bend
+          </span>
         )}
       </div>
     </section>
