@@ -537,7 +537,7 @@ function Contact() {
         </Reveal>
 
         <Reveal delay={180}>
-          <div style={{ display: "flex", gap: "0.8rem", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: "0.8rem", flexWrap: "wrap", justifyContent: "center" }}>
             {[
               { label: "LinkedIn", href: "https://linkedin.com/in/moleculardeveloper" },
               { label: "GitHub", href: "https://github.com/josephsmithvapes" },
