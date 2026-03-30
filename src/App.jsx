@@ -168,8 +168,8 @@ function Hero() {
     <section id="hero" style={{ minHeight: "100vh", background: C.bg, display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" }}>
       {/* Top bar */}
       <div style={{ background: C.ink, padding: "0.6rem 1.5rem", display: "flex", justifyContent: isMobile ? "center" : "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.3rem" }}>
-        <span style={{ fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Sky Madsen · Portfolio</span>
-        {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: C.muted, fontSize: "0.5rem", letterSpacing: "0.12em" }}>Operations · People · Pacific Northwest</span>}
+        <span style={{ fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Sky Madsen · 2026</span>
+        {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: C.muted, fontSize: "0.5rem", letterSpacing: "0.12em" }}>Operations · People Leadership · Hospitalityk</span>}
       </div>
 
       {/* Hero grid */}
@@ -189,7 +189,7 @@ function Hero() {
           <div style={{ opacity: v ? 1 : 0, transform: v ? "none" : "translateY(20px)", transition: "all 0.7s ease 0.1s" }}>
             {/* ── UPDATED: trajectory label */}
             <div style={{ fontFamily: "Georgia,serif", color: C.muted, fontSize: "0.55rem", letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: "0.8rem" }}>
-              No. 001 — General Manager → Operations Director
+                General Manager → Operations Director
             </div>
             <h1 style={{
               fontFamily: "'Arial Black', Impact, sans-serif",
@@ -208,7 +208,7 @@ function Hero() {
 
             {/* ── UPDATED: hero tagline, no AI */}
             <p style={{ fontFamily: "Georgia,serif", fontSize: isMobile ? "0.82rem" : "0.85rem", color: "#555", lineHeight: 1.7, maxWidth: "380px" }}>
-              I've led teams of 30+, owned full P&L, and built operations from the floor up. Now I'm bringing that to the Pacific Northwest.
+              Approach the work with a growth mindset + consistency. 
             </p>
 
             {/* ── NEW: Open to badge */}
@@ -304,11 +304,13 @@ function About() {
         <div style={{ padding: isMobile ? "2rem 1.5rem" : "3rem" }}>
           <Reveal>
             {/* ── UPDATED: about copy */}
-            <p style={{ fontFamily: "Georgia,serif", fontSize: isMobile ? "0.95rem" : "1.1rem", color: C.ink, lineHeight: 1.85, marginBottom: "1.5rem" }}>
-              I've spent 20+ years turning chaos into culture. From high-volume automotive sales floors to a Tier 2 Starbucks Drive-Thru with 30+ partners, I've built teams that perform under pressure, beat their numbers, and stay.
-            </p>
+            
+                  <div style={{ fontFamily: "Georgia,serif", fontSize: "0.82rem", letterSpacing: "0.18em", textTransform: "uppercase", color: C.green, marginBottom: "0.3rem" }}>
+              "We'll find a way... or make one."
+            </div>
             <p style={{ fontFamily: "Georgia,serif", fontSize: isMobile ? "0.88rem" : "1rem", color: "#555", lineHeight: 1.85 }}>
-              I own the P&L, develop the next layer of leadership, and build the systems that make teams run faster. Now I'm relocating to the Pacific Northwest to take that experience into a bigger arena.
+               Constantly innovating to find new ways to surprise & delight my guests.
+               Developing leaders, relationships & revenue.
             </p>
           </Reveal>
 
@@ -567,7 +569,7 @@ function Contact() {
         <Reveal delay={100}>
           {/* ── UPDATED: contact body copy, centered */}
           <p style={{ fontFamily: "Georgia,serif", color: "#7a7570", fontSize: isMobile ? "0.88rem" : "1rem", lineHeight: 1.75, maxWidth: "520px", margin: isMobile ? "0 auto 2rem" : "0 0 2rem", textAlign: "center" }}>
-            20 years of floors, teams, and P&L. Ready to bring that to Seattle, Tacoma, Olympia, or Bend. If you're looking for a real operator — I'm your person.
+            I've served 100,xxx's in the last 20+ years in Southern California. If you're looking for an experienced people leader & dedicated business operator, send me an email! 
           </p>
         </Reveal>
 
@@ -575,9 +577,9 @@ function Contact() {
           {/* ── UPDATED: buttons centered */}
           <div style={{ display: "flex", gap: "0.8rem", flexWrap: "wrap", justifyContent: isMobile ? "center" : "center" }}>
             {[
-              { label: "LinkedIn", href: "https://linkedin.com/in/skymadsen" },
-              { label: "GitHub", href: "https://github.com/josephsmithvapes" },
-              { label: "Email", href: "mailto:sky@skymadsen.com" },
+              { label: "LinkedIn", href: "https://linkedin.com/in/moleculardeveloper" },
+            
+              { label: "Email", href: "mailto: verifiedbysky@gmail.com" },
             ].map(link => (
               <a key={link.label} href={link.href} style={{
                 textDecoration: "none",
