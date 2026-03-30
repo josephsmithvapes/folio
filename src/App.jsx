@@ -169,7 +169,7 @@ function Hero() {
       {/* Top bar */}
       <div style={{ background: C.ink, padding: "0.6rem 1.5rem", display: "flex", justifyContent: isMobile ? "center" : "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.3rem" }}>
         <span style={{ fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Sky Madsen · 2026</span>
-        {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: C.muted, fontSize: "0.5rem", letterSpacing: "0.12em" }}>Operations · People Leadership · Hospitalityk</span>}
+        {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: C.muted, fontSize: "0.5rem", letterSpacing: "0.12em" }}>Operations · People Leadership · Hospitality</span>}
       </div>
 
       {/* Hero grid */}
@@ -177,7 +177,7 @@ function Hero() {
         flex: 1,
         display: "grid",
         gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
-        paddingTop: isMobile ? "3.5rem" : "4rem",
+        paddingTop: isMobile ? "2.0rem" : "4rem",
       }}>
         {/* LEFT */}
         <div style={{
@@ -188,7 +188,8 @@ function Hero() {
         }}>
           <div style={{ opacity: v ? 1 : 0, transform: v ? "none" : "translateY(20px)", transition: "all 0.7s ease 0.1s" }}>
             {/* ── UPDATED: trajectory label */}
-            <div style={{ fontFamily: "Georgia,serif", color: C.muted, fontSize: "0.55rem", letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: "0.8rem" }}>
+         
+                       <div style={{ fontFamily: "Georgia,serif", color: C.muted, fontSize: "0.55rem", letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: "0.8rem" }}>
                 General Manager → Operations Director
             </div>
             <h1 style={{
