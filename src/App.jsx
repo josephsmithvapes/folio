@@ -320,7 +320,7 @@ function About() {
           <div>
             
             <h2 style={{ fontFamily: "'Arial Black', sans-serif", fontSize: isMobile ? "1.8rem" : "2.8rem", fontWeight: 900, color: C.bg, textTransform: "uppercase", lineHeight: 0.9, margin: 0 }}>
-              {isMobile ? "THE LEADER" : <>THE<br />LEAD<br />ER</>}
+              {isMobile ? "This team is much more than the sum of individuals gathered here." : <>THE<br />LEAD<br />ER</>}
             </h2>
           </div>
           <MtnStamp color={C.greenLight} size={isMobile ? 70 : 100} />
