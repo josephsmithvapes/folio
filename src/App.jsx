@@ -99,21 +99,21 @@ function Nav() {
         transition: "all 0.3s ease",
         padding: isMobile ? "0.8rem 1.2rem" : "0.9rem 2rem",
         display: "flex", justifyContent: "space-between", alignItems: "center",
-        fontFamily: "'Arial Black', Impact, sans-serif",
+        fontFamily: "'Arial Black', sans-serif",
       }}>
         <a href="#hero" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.6rem" }}>
           <div style={{ width: 32, height: 32, background: C.ink, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-            <span style={{ color: C.bg, fontSize: "0.65rem", fontWeight: 900 }}>SM</span>
+            <span style={{ fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: "0.65rem", fontWeight: 900 }}>SM</span>
           </div>
-          {scrolled && !isMobile && <span style={{ color: C.ink, fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Sky Madsen</span>}
+          {scrolled && !isMobile && <span style={{ fontFamily: "'Arial Black', sans-serif", color: C.ink, fontSize: "0.6rem", letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 900 }}>Sky Madsen</span>}
         </a>
 
         {!isMobile && (
           <div style={{ display: "flex", gap: "2rem" }}>
             {links.map(l => (
               <a key={l} href={`#${l.toLowerCase()}`} style={{
-                color: C.ink, textDecoration: "none", fontSize: "0.6rem",
-                letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 900,
+                fontFamily: "'Arial Black', sans-serif", color: C.ink, textDecoration: "none", fontSize: "0.6rem",
+                letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 900,
                 borderBottom: "2px solid transparent", paddingBottom: "2px", transition: "all 0.2s",
               }}
               onMouseOver={e => { e.target.style.borderColor = C.green; e.target.style.color = C.green; }}
@@ -146,8 +146,8 @@ function Nav() {
               onClick={() => setMenuOpen(false)}
               style={{
                 padding: "1rem 1.5rem", color: C.ink, textDecoration: "none",
-                fontFamily: "'Arial Black',sans-serif", fontSize: "0.75rem",
-                letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 900,
+                fontFamily: "'Arial Black', sans-serif", fontSize: "0.6rem",
+                letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 900,
                 borderBottom: `1px solid ${C.subtle}`,
               }}
             >{l}</a>
@@ -168,7 +168,7 @@ function Hero() {
     <section id="hero" style={{ minHeight: isMobile ? "auto" : "100vh", background: C.bg, display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" }}>
       {/* Top bar */}
       <div style={{ background: C.ink, padding: "0.6rem 1.5rem", display: isMobile ? "none" : "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.3rem" }}>
-        <span style={{ fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Sky Madsen · 2026</span>
+        <span style={{ fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Sky Madsen · 2026</span>
         {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: C.muted, fontSize: "0.5rem", letterSpacing: "0.12em" }}>Operations · People Leadership · Hospitality</span>}
       </div>
 
@@ -188,11 +188,11 @@ function Hero() {
           <div style={{ opacity: v ? 1 : 0, transform: v ? "none" : "translateY(20px)", transition: "all 0.7s ease 0.1s" }}>
             {/* ── UPDATED: trajectory label */}
          
-                       <div style={{ fontFamily: "Georgia,serif", color: C.muted, fontSize: "0.55rem", letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: "0.8rem" }}>
+                       <div style={{ fontFamily: "'Arial Black', sans-serif", color: C.muted, fontSize: "0.52rem", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "0.8rem" }}>
                 General Manager → Operations Director
             </div>
             <h1 style={{
-              fontFamily: "'Arial Black', Impact, sans-serif",
+              fontFamily: "'Arial Black', sans-serif",
               fontSize: isMobile ? "clamp(3.5rem,18vw,5rem)" : "clamp(4rem,9vw,8rem)",
               lineHeight: 0.85, fontWeight: 900, color: C.ink,
               textTransform: "uppercase", margin: 0,
@@ -211,16 +211,16 @@ function Hero() {
             {/* ── NEW: Open to badge */}
             <div style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", marginTop: "1rem", background: C.greenPale, border: `2px solid ${C.green}`, padding: "0.4rem 0.8rem" }}>
               <span style={{ width: 7, height: 7, borderRadius: "50%", background: C.green, display: "inline-block" }} />
-              <span style={{ fontFamily: "'Arial Black',sans-serif", fontSize: "0.5rem", letterSpacing: "0.15em", textTransform: "uppercase", color: C.green, fontWeight: 900 }}>
+              <span style={{ fontFamily: "'Arial Black', sans-serif", fontSize: "0.5rem", letterSpacing: "0.15em", textTransform: "uppercase", color: C.green, fontWeight: 900 }}>
                 Open to Opportunities · PNW 2026
               </span>
             </div>
 
             <div style={{ display: "flex", gap: "0.8rem", marginTop: "1.2rem", flexWrap: "wrap" }}>
-              <a href="#experience" style={{ textDecoration: "none", padding: isMobile ? "0.7rem 1.5rem" : "0.8rem 2rem", border: `3px solid ${C.ink}`, color: C.ink, fontFamily: "'Arial Black',sans-serif", fontSize: "0.6rem", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 900 }}>View Record</a>
-              <a href="#contact" style={{ textDecoration: "none", padding: isMobile ? "0.7rem 1.5rem" : "0.8rem 2rem", background: C.green, color: C.bg, fontFamily: "'Arial Black',sans-serif", fontSize: "0.6rem", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 900 }}>Hire Me →</a>
+              <a href="#experience" style={{ textDecoration: "none", padding: isMobile ? "0.7rem 1.5rem" : "0.8rem 2rem", border: `3px solid ${C.ink}`, color: C.ink, fontFamily: "'Arial Black', sans-serif", fontSize: "0.6rem", letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 900 }}>View Record</a>
+              <a href="#contact" style={{ textDecoration: "none", padding: isMobile ? "0.7rem 1.5rem" : "0.8rem 2rem", background: C.green, color: C.bg, fontFamily: "'Arial Black', sans-serif", fontSize: "0.6rem", letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 900 }}>Hire Me →</a>
               
-              <a href="#contact" style={{ textDecoration: "none", padding: isMobile ? "0.7rem 0.9rem" : "0.8rem 2rem", border: `3px solid ${C.ink}`, color: C.ink, fontFamily: "'Arial Black',sans-serif", fontSize: "0.6rem", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 900 }}>Email</a>
+              <a href="#contact" style={{ textDecoration: "none", padding: isMobile ? "0.7rem 0.9rem" : "0.8rem 2rem", border: `3px solid ${C.ink}`, color: C.ink, fontFamily: "'Arial Black', sans-serif", fontSize: "0.6rem", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 900 }}>Email</a>
             </div>
           </div>
         </div>}
@@ -230,7 +230,7 @@ function Hero() {
           <div style={{ padding: "3rem 2rem 2rem", display: "flex", flexDirection: "column", justifyContent: "space-between", opacity: v ? 1 : 0, transition: "opacity 0.9s ease 0.35s" }}>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
               <div style={{ width: isTablet ? "100px" : "130px", height: isTablet ? "100px" : "130px", borderRadius: "50%", border: `4px solid ${C.green}`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ fontFamily: "'Arial Black',sans-serif", fontSize: "0.35rem", letterSpacing: "0.22em", textTransform: "uppercase", color: C.green, textAlign: "center", lineHeight: 2.1 }}>
+                <div style={{ fontFamily: "'Arial Black', sans-serif", fontSize: "0.35rem", letterSpacing: "0.22em", textTransform: "uppercase", color: C.green, textAlign: "center", lineHeight: 2.1 }}>
                   PNW<br />BOUND<br />✦ 2026 ✦
                 </div>
               </div>
@@ -239,7 +239,7 @@ function Hero() {
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.8rem" }}>
               {[["20+", "Years Exp."], ["30+", "Team Led"], ["Full", "P&L Owner"], ["ASU", "Org. Lead"]].map(([n, l]) => (
                 <div key={l} style={{ border: `2px solid ${C.ink}`, padding: "0.9rem", background: C.white }}>
-                  <div style={{ fontFamily: "'Arial Black',sans-serif", fontSize: "1.4rem", fontWeight: 900, color: C.ink, lineHeight: 1 }}>{n}</div>
+                  <div style={{ fontFamily: "'Arial Black', sans-serif", fontSize: "1.4rem", fontWeight: 900, color: C.ink, lineHeight: 1 }}>{n}</div>
                   <div style={{ fontFamily: "Georgia,serif", fontSize: "0.52rem", letterSpacing: "0.12em", color: C.muted, textTransform: "uppercase", marginTop: "0.2rem" }}>{l}</div>
                 </div>
               ))}
@@ -260,25 +260,25 @@ function Hero() {
                 </svg>
               </div>
               <p style={{ position: "relative", fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.35)", fontSize: "0.5rem", letterSpacing: "0.22em", textTransform: "uppercase", marginBottom: "0.8rem" }}>General Manager → Operations Director</p>
-              <div style={{ position: "relative", fontFamily: "'Arial Black',Impact,sans-serif", fontSize: "clamp(3.5rem,14vw,4.8rem)", lineHeight: 0.85, fontWeight: 900, color: C.bg, textTransform: "uppercase" }}>SKY</div>
+              <div style={{ position: "relative", fontFamily: "'Arial Black', sans-serif", fontSize: "clamp(3.5rem,14vw,4.8rem)", lineHeight: 0.85, fontWeight: 900, color: C.bg, textTransform: "uppercase" }}>SKY</div>
             </div>
             <div style={{ background: C.bg, paddingTop: "0.2rem", paddingBottom: "1rem", paddingLeft: "1.8rem", paddingRight: "1.8rem", textAlign: "center", width: "100%", overflow: "hidden" }}>
-              <div style={{ fontFamily: "'Arial Black',Impact,sans-serif", fontSize: "clamp(3.5rem,14vw,4.8rem)", lineHeight: 0.85, fontWeight: 900, color: C.ink, textTransform: "uppercase" }}>MADSEN</div>
+              <div style={{ fontFamily: "'Arial Black', sans-serif", fontSize: "clamp(3.5rem,14vw,4.8rem)", lineHeight: 0.85, fontWeight: 900, color: C.ink, textTransform: "uppercase" }}>MADSEN</div>
               <div style={{ height: "4px", background: C.ink, margin: "1.4rem 0 1.2rem" }} />
               <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem" }}>
                 <div style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", background: C.greenPale, border: `2px solid ${C.green}`, padding: "0.45rem 1rem" }}>
                   <span style={{ width: 6, height: 6, borderRadius: "50%", background: C.green, display: "inline-block" }} />
-                  <span style={{ fontFamily: "'Arial Black',sans-serif", fontSize: "0.48rem", letterSpacing: "0.15em", textTransform: "uppercase", color: C.green, fontWeight: 900 }}>Open to Opportunities · PNW 2026</span>
+                  <span style={{ fontFamily: "'Arial Black', sans-serif", fontSize: "0.5rem", letterSpacing: "0.15em", textTransform: "uppercase", color: C.green, fontWeight: 900 }}>Open to Opportunities · PNW 2026</span>
                 </div>
               </div>
               <div style={{ display: "flex", gap: "0.8rem", marginBottom: "1.4rem" }}>
-                <a href="#contact" style={{ flex: 1, textDecoration: "none", padding: "0.85rem", background: C.green, color: C.bg, fontFamily: "'Arial Black',sans-serif", fontSize: "0.58rem", letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 900, textAlign: "center" }}>Hire Me →</a>
-                <a href="#experience" style={{ flex: 1, textDecoration: "none", padding: "0.85rem", border: `3px solid ${C.ink}`, color: C.ink, fontFamily: "'Arial Black',sans-serif", fontSize: "0.58rem", letterSpacing: "0.15em", textTransform: "uppercase", textAlign: "center" }}>View Record</a>
+                <a href="#contact" style={{ flex: 1, textDecoration: "none", padding: "0.85rem", background: C.green, color: C.bg, fontFamily: "'Arial Black', sans-serif", fontSize: "0.6rem", letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 900, textAlign: "center" }}>Hire Me →</a>
+                <a href="#experience" style={{ flex: 1, textDecoration: "none", padding: "0.85rem", border: `3px solid ${C.ink}`, color: C.ink, fontFamily: "'Arial Black', sans-serif", fontSize: "0.6rem", letterSpacing: "0.15em", textTransform: "uppercase", textAlign: "center" }}>View Record</a>
               </div>
               <div style={{ display: "flex", justifyContent: "space-around", borderTop: `2px solid ${C.subtle}`, paddingTop: "1rem" }}>
                 {[["20+","Years"],["30+","Team Led"],["Full","P&L"]].map(([n,l]) => (
                   <div key={l} style={{ textAlign: "center" }}>
-                    <div style={{ fontFamily: "'Arial Black',sans-serif", fontSize: "1.5rem", fontWeight: 900, color: C.ink, lineHeight: 1 }}>{n}</div>
+                    <div style={{ fontFamily: "'Arial Black', sans-serif", fontSize: "1.4rem", fontWeight: 900, color: C.ink, lineHeight: 1 }}>{n}</div>
                     <div style={{ fontFamily: "Georgia,serif", fontSize: "0.44rem", color: C.muted, textTransform: "uppercase", letterSpacing: "0.1em", marginTop: "0.2rem" }}>{l}</div>
                   </div>
                 ))}
@@ -292,7 +292,7 @@ function Hero() {
         <div style={{ background: C.ink, padding: "0.4rem 1.5rem", overflowX: "auto" }}>
           <div style={{ display: "flex", justifyContent: "center", gap: isMobile ? "1rem" : "2.5rem", minWidth: "fit-content", margin: "0 auto" }}>
             {["Seattle WA", "Tacoma WA", "Olympia WA", "Bend OR"].map(c => (
-              <span key={c} style={{ fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: isMobile ? "0.42rem" : "0.5rem", letterSpacing: "0.15em", textTransform: "uppercase", whiteSpace: "nowrap" }}>{c}</span>
+              <span key={c} style={{ fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: isMobile ? "0.42rem" : "0.5rem", letterSpacing: "0.15em", textTransform: "uppercase", whiteSpace: "nowrap" }}>{c}</span>
             ))}
           </div>
         </div>
@@ -319,7 +319,7 @@ function About() {
         }}>
           <div>
             
-            <h2 style={{ fontFamily: "'Arial Black',sans-serif", fontSize: isMobile ? "1.8rem" : "2.8rem", fontWeight: 900, color: C.bg, textTransform: "uppercase", lineHeight: 0.9, margin: 0 }}>
+            <h2 style={{ fontFamily: "'Arial Black', sans-serif", fontSize: isMobile ? "1.8rem" : "2.8rem", fontWeight: 900, color: C.bg, textTransform: "uppercase", lineHeight: 0.9, margin: 0 }}>
               {isMobile ? "THE LEADER" : <>THE<br />LEAD<br />ER</>}
             </h2>
           </div>
@@ -353,7 +353,7 @@ function About() {
                   background: i === 1 ? C.greenPale : C.white,
                 }}>
                   <div style={{ fontFamily: "Georgia,serif", fontSize: "0.52rem", letterSpacing: "0.18em", textTransform: "uppercase", color: C.muted, marginBottom: "0.3rem" }}>{s.label}</div>
-                  <div style={{ fontFamily: "'Arial Black',sans-serif", fontSize: "0.88rem", fontWeight: 900, color: C.ink, textTransform: "uppercase" }}>{s.value}</div>
+                  <div style={{ fontFamily: "'Arial Black', sans-serif", fontSize: "0.88rem", fontWeight: 900, color: C.ink, textTransform: "uppercase" }}>{s.value}</div>
                   <div style={{ fontFamily: "Georgia,serif", fontSize: "0.7rem", color: "#666", marginTop: "0.2rem" }}>{s.sub}</div>
                 </div>
               ))}
@@ -401,10 +401,10 @@ function Experience() {
       {/* ── UPDATED: section header with subtitle */}
       <div style={{ background: C.green, padding: isMobile ? "1.2rem 1.5rem" : "1.5rem 3rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <div>
-          <h2 style={{ fontFamily: "'Arial Black',sans-serif", fontSize: isMobile ? "1.3rem" : "clamp(1.2rem,3vw,2rem)", fontWeight: 900, color: C.bg, textTransform: "uppercase", margin: 0, lineHeight: 1 }}>Experience</h2>
+          <h2 style={{ fontFamily: "'Arial Black', sans-serif", fontSize: isMobile ? "1.3rem" : "clamp(1.2rem,3vw,2rem)", fontWeight: 900, color: C.bg, textTransform: "uppercase", margin: 0, lineHeight: 1 }}>Experience</h2>
           <p style={{ fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.6)", fontSize: "0.65rem", marginTop: "0.2rem", fontStyle: "italic" }}>The Record</p>
         </div>
-        {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.4)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase" }}></span>}
+        {!isMobile && <span style={{ fontFamily: "'Arial Black', sans-serif", color: "rgba(242,237,227,0.4)", fontSize: "0.52rem", letterSpacing: "0.15em", textTransform: "uppercase" }}></span>}
       </div>
 
       <div style={{ padding: isMobile ? "1.5rem" : "3rem" }}>
@@ -415,11 +415,11 @@ function Experience() {
               onMouseOut={e => e.currentTarget.style.borderColor = C.ink}
             >
               <div style={{ background: C.ink, padding: isMobile ? "1rem 1.2rem" : "1rem 1.8rem" }}>
-                <div style={{ fontFamily: "'Arial Black',sans-serif", fontSize: isMobile ? "0.78rem" : "0.95rem", color: C.bg, textTransform: "uppercase", fontWeight: 900, lineHeight: 1.3 }}>{job.role}</div>
+                <div style={{ fontFamily: "'Arial Black', sans-serif", fontSize: isMobile ? "0.78rem" : "0.95rem", color: C.bg, textTransform: "uppercase", fontWeight: 900, lineHeight: 1.3 }}>{job.role}</div>
                 <div style={{ fontFamily: "Georgia,serif", fontSize: "0.72rem", color: C.greenLight, marginTop: "0.3rem" }}>{job.company}</div>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "0.4rem", flexWrap: "wrap", gap: "0.3rem" }}>
                   <span style={{ fontFamily: "Georgia,serif", fontSize: "0.65rem", color: C.muted }}>{job.loc}</span>
-                  <span style={{ border: `1px solid ${C.greenLight}`, padding: "0.2rem 0.6rem", fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: "0.5rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>{job.period}</span>
+                  <span style={{ border: `1px solid ${C.greenLight}`, padding: "0.2rem 0.6rem", fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: "0.5rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>{job.period}</span>
                 </div>
               </div>
               <div style={{ padding: isMobile ? "1.2rem" : "1.5rem 1.8rem" }}>
@@ -436,11 +436,11 @@ function Experience() {
         <Reveal delay={200}>
           <div style={{ marginTop: "1.5rem", border: `3px solid ${C.green}`, background: C.greenPale, padding: isMobile ? "1rem 1.2rem" : "1.3rem 1.8rem", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.8rem" }}>
             <div>
-              <div style={{ fontFamily: "'Arial Black',sans-serif", color: C.ink, fontSize: isMobile ? "0.78rem" : "0.85rem", textTransform: "uppercase", fontWeight: 900 }}>B.S. Organizational Leadership</div>
+              <div style={{ fontFamily: "'Arial Black', sans-serif", color: C.ink, fontSize: isMobile ? "0.78rem" : "0.85rem", textTransform: "uppercase", fontWeight: 900 }}>B.S. Organizational Leadership</div>
               <div style={{ fontFamily: "Georgia,serif", color: C.green, fontSize: "0.72rem", marginTop: "0.2rem" }}>Arizona State University</div>
             </div>
             <div style={{ background: C.green, padding: "0.4rem 1rem" }}>
-              <span style={{ fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: "0.52rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>In Progress</span>
+              <span style={{ fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: "0.5rem", letterSpacing: "0.15em", textTransform: "uppercase" }}>In Progress</span>
             </div>
           </div>
         </Reveal>
@@ -491,10 +491,10 @@ function Projects() {
       {/* ── UPDATED: section header with subtitle */}
       <div style={{ background: C.green, padding: isMobile ? "1.2rem 1.5rem" : "1.5rem 3rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <div>
-          <h2 style={{ fontFamily: "'Arial Black',sans-serif", fontSize: isMobile ? "1.3rem" : "clamp(1.2rem,3vw,2rem)", fontWeight: 900, color: C.bg, textTransform: "uppercase", margin: 0, lineHeight: 1 }}>Projects</h2>
+          <h2 style={{ fontFamily: "'Arial Black', sans-serif", fontSize: isMobile ? "1.3rem" : "clamp(1.2rem,3vw,2rem)", fontWeight: 900, color: C.bg, textTransform: "uppercase", margin: 0, lineHeight: 1 }}>Projects</h2>
           <p style={{ fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.6)", fontSize: "0.65rem", marginTop: "0.2rem", fontStyle: "italic" }}>Built, Not Just Managed</p>
         </div>
-        {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.4)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>  03</span>}
+        {!isMobile && <span style={{ fontFamily: "'Arial Black', sans-serif", color: "rgba(242,237,227,0.4)", fontSize: "0.52rem", letterSpacing: "0.15em", textTransform: "uppercase" }}>  03</span>}
       </div>
 
       <div style={{ padding: isMobile ? "1.5rem" : "3rem", display: "grid", gridTemplateColumns: isMobile ? "1fr" : isTablet ? "1fr" : "1fr 1fr", gap: "1.2rem" }}>
@@ -504,14 +504,14 @@ function Projects() {
               onMouseOver={e => { e.currentTarget.style.borderColor = C.greenLight; e.currentTarget.style.background = "rgba(45,90,39,0.15)"; }}
               onMouseOut={e => { e.currentTarget.style.borderColor = "rgba(242,237,227,0.12)"; e.currentTarget.style.background = "rgba(242,237,227,0.03)"; }}
             >
-              <div style={{ fontFamily: "'Arial Black',sans-serif", color: C.green, fontSize: "0.65rem", letterSpacing: "0.2em", marginBottom: "0.4rem" }}>{p.num}</div>
-              <h3 style={{ fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: isMobile ? "0.85rem" : "0.95rem", textTransform: "uppercase", margin: "0 0 0.3rem", fontWeight: 900 }}>{p.name}</h3>
+              <div style={{ fontFamily: "'Arial Black', sans-serif", color: C.green, fontSize: "0.65rem", letterSpacing: "0.2em", marginBottom: "0.4rem" }}>{p.num}</div>
+              <h3 style={{ fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: isMobile ? "0.85rem" : "0.95rem", textTransform: "uppercase", margin: "0 0 0.3rem", fontWeight: 900 }}>{p.name}</h3>
               {/* ── NEW: impact statement */}
               <p style={{ fontFamily: "Georgia,serif", color: C.greenLight, fontSize: "0.78rem", fontStyle: "italic", margin: "0 0 0.7rem", lineHeight: 1.4 }}>{p.impact}</p>
               <p style={{ fontFamily: "Georgia,serif", color: "#8a8580", lineHeight: 1.7, fontSize: isMobile ? "0.78rem" : "0.82rem", flex: 1 }}>{p.desc}</p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", marginTop: "1rem" }}>
                 {p.tech.map(t => (
-                  <span key={t} style={{ fontFamily: "'Arial Black',sans-serif", fontSize: "0.48rem", letterSpacing: "0.1em", textTransform: "uppercase", color: C.greenLight, border: "1px solid rgba(61,122,53,0.4)", padding: "0.2rem 0.5rem" }}>{t}</span>
+                  <span key={t} style={{ fontFamily: "'Arial Black', sans-serif", fontSize: "0.5rem", letterSpacing: "0.1em", textTransform: "uppercase", color: C.greenLight, border: "1px solid rgba(61,122,53,0.4)", padding: "0.2rem 0.5rem" }}>{t}</span>
                 ))}
               </div>
               {p.url && <div style={{ marginTop: "0.7rem", fontFamily: "Georgia,serif", color: C.greenLight, fontSize: "0.68rem" }}>→ {p.url}</div>}
@@ -536,8 +536,8 @@ function Skills() {
   return (
     <section id="skills" style={{ background: C.bg, borderTop: `5px solid ${C.ink}` }}>
       <div style={{ background: C.ink, padding: isMobile ? "1.2rem 1.5rem" : "1.5rem 3rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <h2 style={{ fontFamily: "'Arial Black',sans-serif", fontSize: isMobile ? "1.3rem" : "clamp(1.2rem,3vw,2rem)", fontWeight: 900, color: C.bg, textTransform: "uppercase", margin: 0 }}>Skills</h2>
-        {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: C.muted, fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>  04 — Skills</span>}
+        <h2 style={{ fontFamily: "'Arial Black', sans-serif", fontSize: isMobile ? "1.3rem" : "clamp(1.2rem,3vw,2rem)", fontWeight: 900, color: C.bg, textTransform: "uppercase", margin: 0 }}>Skills</h2>
+        {!isMobile && <span style={{ fontFamily: "'Arial Black', sans-serif", color: C.muted, fontSize: "0.52rem", letterSpacing: "0.15em", textTransform: "uppercase" }}>  04 — Skills</span>}
       </div>
 
       <div style={{ padding: isMobile ? "1.5rem" : "3rem", display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "1.2rem" }}>
@@ -545,7 +545,7 @@ function Skills() {
           <Reveal key={g.label} delay={i * 70}>
             <div style={{ border: `3px solid ${C.ink}`, background: C.white }}>
               <div style={{ background: i % 2 === 0 ? C.ink : C.green, padding: "0.7rem 1.2rem" }}>
-                <span style={{ fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: "0.62rem", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 900 }}>{g.label}</span>
+                <span style={{ fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: "0.62rem", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 900 }}>{g.label}</span>
               </div>
               <div style={{ padding: "1rem 1.2rem", display: "flex", flexWrap: "wrap", gap: "0.45rem" }}>
                 {g.items.map(skill => (
@@ -575,12 +575,12 @@ function Contact() {
       <div style={{ padding: isMobile ? "1rem 1.5rem 3rem" : "0rem 3rem 4rem", position: "relative", marginTop: isMobile ? "-35px" : "-60px", textAlign: isMobile ? "center" : "left" }}>
         <Reveal>
           <div style={{ background: C.green, padding: "0.8rem 1.2rem", display: "inline-block", marginBottom: "1.5rem" }}>
-            <span style={{ fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: "0.55rem", letterSpacing: "0.18em", textTransform: "uppercase" }}> Contact</span>
+            <span style={{ fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: "0.55rem", letterSpacing: "0.18em", textTransform: "uppercase" }}> Contact</span>
           </div>
 
           {/* ── UPDATED: contact headline */}
           <h2 style={{
-            fontFamily: "'Arial Black',sans-serif",
+            fontFamily: "'Arial Black', sans-serif",
             fontSize: isMobile ? "clamp(2.5rem,16vw,4rem)" : "clamp(2.5rem,7vw,6rem)",
             fontWeight: 900, color: C.bg, textTransform: "uppercase",
             lineHeight: 0.9, margin: "0 0 1.5rem",
@@ -610,8 +610,8 @@ function Contact() {
                 textDecoration: "none",
                 padding: isMobile ? "0.8rem 1.5rem" : "0.9rem 2rem",
                 border: `3px solid ${C.bg}`, color: C.bg,
-                fontFamily: "'Arial Black',sans-serif",
-                fontSize: isMobile ? "0.6rem" : "0.62rem",
+                fontFamily: "'Arial Black', sans-serif",
+                fontSize: "0.6rem",
                 letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 900,
                 transition: "all 0.2s",
               }}
@@ -624,7 +624,7 @@ function Contact() {
       </div>
 
       <div style={{ background: C.green, padding: isMobile ? "0.8rem 1.5rem" : "1rem 3rem", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.5rem" }}>
-        <span style={{ fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: "0.52rem", letterSpacing: "0.18em", textTransform: "uppercase" }}>© 2026 Sky Madsen</span>
+        <span style={{ fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: "0.52rem", letterSpacing: "0.18em", textTransform: "uppercase" }}>© 2026 Sky Madsen</span>
         {!isMobile && (
           <span style={{ fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.4)", fontSize: "0.52rem", letterSpacing: "0.08em" }}>
             Seattle · Tacoma · Olympia · Bend
