@@ -208,7 +208,7 @@ function Hero() {
 
             {/* ── UPDATED: hero tagline, no AI */}
             <p style={{ fontFamily: "Georgia,serif", fontSize: isMobile ? "0.82rem" : "0.85rem", color: "#555", lineHeight: 1.7, maxWidth: "380px" }}>
-              Approach the work with a growth mindset + consistency. 
+              Purpose Driven Leader  
             </p>
 
             {/* ── NEW: Open to badge */}
@@ -293,7 +293,7 @@ function About() {
           borderBottom: isMobile ? `5px solid ${C.green}` : "none",
         }}>
           <div>
-            <div style={{ fontFamily: "Georgia,serif", color: C.muted, fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: isMobile ? "0.3rem" : "1.5rem" }}>Section 01</div>
+            
             <h2 style={{ fontFamily: "'Arial Black',sans-serif", fontSize: isMobile ? "1.8rem" : "2.8rem", fontWeight: 900, color: C.bg, textTransform: "uppercase", lineHeight: 0.9, margin: 0 }}>
               {isMobile ? "THE LEADER" : <>THE<br />LEAD<br />ER</>}
             </h2>
@@ -319,7 +319,7 @@ function About() {
               {[
                 { label: "Current Role", value: "GM · Starbucks", sub: "Tier 2 Drive-Thru" },
                 { label: "Target", value: "Ops Director", sub: "Regional / District" },
-                { label: "Relocating", value: "PNW 2026", sub: "Seattle · Tacoma · Bend" },
+                { label: "Relocating", value: "PNW 2026", sub: "Washington · Oregon" },
               ].map((s, i) => (
                 <div key={s.label} style={{
                   padding: "1.2rem 1.5rem",
@@ -379,7 +379,7 @@ function Experience() {
           <h2 style={{ fontFamily: "'Arial Black',sans-serif", fontSize: isMobile ? "1.3rem" : "clamp(1.2rem,3vw,2rem)", fontWeight: 900, color: C.bg, textTransform: "uppercase", margin: 0, lineHeight: 1 }}>Experience</h2>
           <p style={{ fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.6)", fontSize: "0.65rem", marginTop: "0.2rem", fontStyle: "italic" }}>The Record</p>
         </div>
-        {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.4)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Section 02</span>}
+        {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.4)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase" }}></span>}
       </div>
 
       <div style={{ padding: isMobile ? "1.5rem" : "3rem" }}>
@@ -469,7 +469,7 @@ function Projects() {
           <h2 style={{ fontFamily: "'Arial Black',sans-serif", fontSize: isMobile ? "1.3rem" : "clamp(1.2rem,3vw,2rem)", fontWeight: 900, color: C.bg, textTransform: "uppercase", margin: 0, lineHeight: 1 }}>Projects</h2>
           <p style={{ fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.6)", fontSize: "0.65rem", marginTop: "0.2rem", fontStyle: "italic" }}>Built, Not Just Managed</p>
         </div>
-        {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.4)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Section 03</span>}
+        {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.4)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>  03</span>}
       </div>
 
       <div style={{ padding: isMobile ? "1.5rem" : "3rem", display: "grid", gridTemplateColumns: isMobile ? "1fr" : isTablet ? "1fr" : "1fr 1fr", gap: "1.2rem" }}>
@@ -511,8 +511,8 @@ function Skills() {
   return (
     <section id="skills" style={{ background: C.bg, borderTop: `5px solid ${C.ink}` }}>
       <div style={{ background: C.ink, padding: isMobile ? "1.2rem 1.5rem" : "1.5rem 3rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <h2 style={{ fontFamily: "'Arial Black',sans-serif", fontSize: isMobile ? "1.3rem" : "clamp(1.2rem,3vw,2rem)", fontWeight: 900, color: C.bg, textTransform: "uppercase", margin: 0 }}>The Toolkit</h2>
-        {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: C.muted, fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Section 04 — Skills</span>}
+        <h2 style={{ fontFamily: "'Arial Black',sans-serif", fontSize: isMobile ? "1.3rem" : "clamp(1.2rem,3vw,2rem)", fontWeight: 900, color: C.bg, textTransform: "uppercase", margin: 0 }}>Skills</h2>
+        {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: C.muted, fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>  04 — Skills</span>}
       </div>
 
       <div style={{ padding: isMobile ? "1.5rem" : "3rem", display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "1.2rem" }}>
@@ -550,7 +550,7 @@ function Contact() {
       <div style={{ padding: isMobile ? "1rem 1.5rem 3rem" : "0rem 3rem 4rem", position: "relative", marginTop: isMobile ? "-35px" : "-60px", textAlign: isMobile ? "center" : "left" }}>
         <Reveal>
           <div style={{ background: C.green, padding: "0.8rem 1.2rem", display: "inline-block", marginBottom: "1.5rem" }}>
-            <span style={{ fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: "0.55rem", letterSpacing: "0.18em", textTransform: "uppercase" }}>Section 05 — Contact</span>
+            <span style={{ fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: "0.55rem", letterSpacing: "0.18em", textTransform: "uppercase" }}> Contact</span>
           </div>
 
           {/* ── UPDATED: contact headline */}
@@ -568,7 +568,7 @@ function Contact() {
 
         <Reveal delay={100}>
           {/* ── UPDATED: contact body copy, centered */}
-          <p style={{ fontFamily: "Georgia,serif", color: "#7a7570", fontSize: isMobile ? "0.88rem" : "1rem", lineHeight: 1.75, maxWidth: "520px", margin: isMobile ? "0 auto 2rem" : "0 0 2rem", textAlign: "center" }}>
+          <p style={{ fontFamily: "Georgia,serif", color: "#7a7570", fontSize: isMobile ? "0.88rem" : "1rem", lineHeight: 1.75, maxWidth: "520px",textAlign: "center", margin: "0 auto 2rem" }}>
             I've served 100,xxx's in the last 20+ years in Southern California. If you're looking for an experienced people leader & dedicated business operator, send me an email! 
           </p>
         </Reveal>
