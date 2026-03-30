@@ -330,9 +330,7 @@ function About() {
           <Reveal>
             {/* ── UPDATED: about copy */}
             
-                  <div style={{ fontFamily: "Georgia,serif", fontSize: "0.82rem", letterSpacing: "0.18em", textTransform: "uppercase", color: C.green, marginBottom: "0.3rem" }}>
-              "We'll find a way... or make one."
-            </div>
+                 
             <p style={{ fontFamily: "Georgia,serif", fontSize: isMobile ? "0.88rem" : "1rem", color: "#555", lineHeight: 1.85 }}>
                Constantly innovating to find new ways to surprise & delight my guests.
                Developing leaders, relationships & revenue.
@@ -587,7 +585,10 @@ function Contact() {
           }}>
             LET'S<br />
             <span style={{ WebkitTextStroke: `3px ${C.greenLight}`, color: "transparent" }}>TALK</span><br />
-            <span style={{ color: C.greenLight }}>.</span>
+            <span style={{ color: C.greenLight }}> </span>
+             <div style={{ fontFamily: "Georgia,serif", fontSize: "0.82rem", letterSpacing: "0.18em", textTransform: "uppercase", color: C.bg, marginBottom: "0.1rem",  }}>
+              "We'll find a way... or make one."
+            </div>
           </h2>
         </Reveal>
 
