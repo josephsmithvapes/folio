@@ -272,8 +272,8 @@ function Hero() {
                 </div>
               </div>
               <div style={{ display: "flex", gap: "0.8rem", marginBottom: "1.4rem" }}>
-                <a href="#contact" style={{ flex: 1, textDecoration: "none", padding: "0.85rem", background: C.green, color: C.bg, fontFamily: "'Arial Black', sans-serif", fontSize: "0.6rem", letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 900, textAlign: "center" }}>Hire Me →</a>
-                <a href="#experience" style={{ flex: 1, textDecoration: "none", padding: "0.85rem", border: `3px solid ${C.ink}`, color: C.ink, fontFamily: "'Arial Black', sans-serif", fontSize: "0.6rem", letterSpacing: "0.15em", textTransform: "uppercase", textAlign: "center" }}>View Record</a>
+                <a href="#contact" style={{ flex: 1, textDecoration: "none", padding: "0.85rem", border: `3px solid ${C.ink}`, color: C.ink, fontFamily: "'Arial Black', sans-serif", fontSize: "0.6rem", letterSpacing: "0.15em", textTransform: "uppercase", textAlign: "center" }}>Hire Me →</a>
+                <a href="#experience" style={{ flex: 1, textDecoration: "none", padding: "0.85rem", border: `3px solid ${C.ink}`, color: C.ink, fontFamily: "'Arial Black', sans-serif", fontSize: "0.6rem", letterSpacing: "0.15em", textTransform: "uppercase", textAlign: "center" }}>Experience</a>
               </div>
               <div style={{ display: "flex", justifyContent: "space-around", borderTop: `2px solid ${C.subtle}`, paddingTop: "1rem" }}>
                 {[["20+","Years"],["30+","Team Led"],["Full","P&L"]].map(([n,l]) => (
