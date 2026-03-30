@@ -93,8 +93,8 @@ function Nav() {
     <>
       <nav style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
-        background: scrolled || menuOpen ? "rgba(242,237,227,0.97)" : "transparent",
-        borderBottom: scrolled || menuOpen ? `3px solid ${C.ink}` : "none",
+        background: isMobile ? "rgba(242,237,227,0.97)" : scrolled || menuOpen ? "rgba(242,237,227,0.97)" : "transparent",
+        borderBottom: isMobile || scrolled || menuOpen ? `3px solid ${C.ink}` : "none",
         backdropFilter: scrolled ? "blur(8px)" : "none",
         transition: "all 0.3s ease",
         padding: isMobile ? "0.8rem 1.2rem" : "0.9rem 2rem",
@@ -165,9 +165,9 @@ function Hero() {
   useEffect(() => { setTimeout(() => setV(true), 80); }, []);
 
   return (
-    <section id="hero" style={{ minHeight: "100vh", background: C.bg, display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" }}>
+    <section id="hero" style={{ minHeight: isMobile ? "auto" : "100vh", background: C.bg, display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" }}>
       {/* Top bar */}
-      <div style={{ background: C.ink, padding: "0.6rem 1.5rem", display: "flex", justifyContent: isMobile ? "center" : "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.3rem" }}>
+      <div style={{ background: C.ink, padding: "0.6rem 1.5rem", display: isMobile ? "none" : "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.3rem" }}>
         <span style={{ fontFamily: "'Arial Black',sans-serif", color: C.bg, fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Sky Madsen · 2026</span>
         {!isMobile && <span style={{ fontFamily: "Georgia,serif", color: C.muted, fontSize: "0.5rem", letterSpacing: "0.12em" }}>Operations · People Leadership · Hospitality</span>}
       </div>
@@ -180,11 +180,10 @@ function Hero() {
         paddingTop: isMobile ? "2.0rem" : "4rem",
       }}>
         {/* LEFT */}
-        <div style={{
-          padding: isMobile ? "2rem 1.5rem 1.5rem" : "3rem 2rem 2rem 3rem",
+        {!isMobile && <div style={{
+          padding: "3rem 2rem 2rem 3rem",
           display: "flex", flexDirection: "column", justifyContent: "space-between",
-          borderRight: isMobile ? "none" : `5px solid ${C.ink}`,
-          borderBottom: isMobile ? `5px solid ${C.ink}` : "none",
+          borderRight: `5px solid ${C.ink}`,
         }}>
           <div style={{ opacity: v ? 1 : 0, transform: v ? "none" : "translateY(20px)", transition: "all 0.7s ease 0.1s" }}>
             {/* ── UPDATED: trajectory label */}
@@ -224,7 +223,7 @@ function Hero() {
               <a href="#contact" style={{ textDecoration: "none", padding: isMobile ? "0.7rem 0.9rem" : "0.8rem 2rem", border: `3px solid ${C.ink}`, color: C.ink, fontFamily: "'Arial Black',sans-serif", fontSize: "0.6rem", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 900 }}>Email</a>
             </div>
           </div>
-        </div>
+        </div>}
 
         {/* RIGHT */}
         {!isMobile && (
@@ -248,19 +247,45 @@ function Hero() {
           </div>
         )}
 
-        {/* Mobile stats */}
         {isMobile && (
-          <div style={{ padding: "1.2rem 1.5rem", display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: "0.5rem", opacity: v ? 1 : 0, transition: "opacity 0.9s ease 0.5s" }}>
-            {/* ── UPDATED: mobile stat labels */}
-            {[["20+", "Yrs"], ["30+", "Team"], ["P&L", "Owner"], ["ASU", "OrgLd"]].map(([n, l]) => (
-              <div key={l} style={{ border: `2px solid ${C.ink}`, padding: "0.6rem 0.4rem", background: C.white, textAlign: "center" }}>
-                <div style={{ fontFamily: "'Arial Black',sans-serif", fontSize: "1rem", fontWeight: 900, color: C.ink, lineHeight: 1 }}>{n}</div>
-                <div style={{ fontFamily: "Georgia,serif", fontSize: "0.45rem", letterSpacing: "0.1em", color: C.muted, textTransform: "uppercase", marginTop: "0.15rem" }}>{l}</div>
+          <div style={{ opacity: v ? 1 : 0, transition: "opacity 0.8s ease 0.4s", display: "flex", flexDirection: "column" }}>
+            <div style={{ background: C.ink, paddingTop: "4.5rem", paddingBottom: "1.8rem", paddingLeft: "1.8rem", paddingRight: "1.8rem", textAlign: "center", width: "100%", overflow: "hidden", position: "relative", overflow: "hidden" }}>
+              <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, opacity: 0.1 }}>
+                <svg viewBox="0 0 400 120" preserveAspectRatio="xMidYMax meet" style={{ width: "100%", display: "block" }}>
+                  <g opacity="0.5">
+                    {[[0,120,22,58,44,120],[54,120,76,52,98,120],[108,120,130,56,152,120],[162,120,184,50,206,120],[216,120,238,54,260,120],[270,120,292,52,314,120],[324,120,346,56,368,120],[378,120,400,51,422,120]].map(([x1,y1,x2,y2,x3,y3],i) => (
+                      <polygon key={i} points={`${x1},${y1} ${x2},${y2} ${x3},${y3}`} fill={C.greenLight} />
+                    ))}
+                  </g>
+                </svg>
               </div>
-            ))}
+              <p style={{ position: "relative", fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.35)", fontSize: "0.5rem", letterSpacing: "0.22em", textTransform: "uppercase", marginBottom: "0.8rem" }}>General Manager → Operations Director</p>
+              <div style={{ position: "relative", fontFamily: "'Arial Black',Impact,sans-serif", fontSize: "clamp(3.5rem,14vw,4.8rem)", lineHeight: 0.85, fontWeight: 900, color: C.bg, textTransform: "uppercase" }}>SKY</div>
+            </div>
+            <div style={{ background: C.bg, paddingTop: "0.2rem", paddingBottom: "1rem", paddingLeft: "1.8rem", paddingRight: "1.8rem", textAlign: "center", width: "100%", overflow: "hidden" }}>
+              <div style={{ fontFamily: "'Arial Black',Impact,sans-serif", fontSize: "clamp(3.5rem,14vw,4.8rem)", lineHeight: 0.85, fontWeight: 900, color: C.ink, textTransform: "uppercase" }}>MADSEN</div>
+              <div style={{ height: "4px", background: C.ink, margin: "1.4rem 0 1.2rem" }} />
+              <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem" }}>
+                <div style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", background: C.greenPale, border: `2px solid ${C.green}`, padding: "0.45rem 1rem" }}>
+                  <span style={{ width: 6, height: 6, borderRadius: "50%", background: C.green, display: "inline-block" }} />
+                  <span style={{ fontFamily: "'Arial Black',sans-serif", fontSize: "0.48rem", letterSpacing: "0.15em", textTransform: "uppercase", color: C.green, fontWeight: 900 }}>Open to Opportunities · PNW 2026</span>
+                </div>
+              </div>
+              <div style={{ display: "flex", gap: "0.8rem", marginBottom: "1.4rem" }}>
+                <a href="#contact" style={{ flex: 1, textDecoration: "none", padding: "0.85rem", background: C.green, color: C.bg, fontFamily: "'Arial Black',sans-serif", fontSize: "0.58rem", letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 900, textAlign: "center" }}>Hire Me →</a>
+                <a href="#experience" style={{ flex: 1, textDecoration: "none", padding: "0.85rem", border: `3px solid ${C.ink}`, color: C.ink, fontFamily: "'Arial Black',sans-serif", fontSize: "0.58rem", letterSpacing: "0.15em", textTransform: "uppercase", textAlign: "center" }}>View Record</a>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-around", borderTop: `2px solid ${C.subtle}`, paddingTop: "1rem" }}>
+                {[["20+","Years"],["30+","Team Led"],["Full","P&L"]].map(([n,l]) => (
+                  <div key={l} style={{ textAlign: "center" }}>
+                    <div style={{ fontFamily: "'Arial Black',sans-serif", fontSize: "1.5rem", fontWeight: 900, color: C.ink, lineHeight: 1 }}>{n}</div>
+                    <div style={{ fontFamily: "Georgia,serif", fontSize: "0.44rem", color: C.muted, textTransform: "uppercase", letterSpacing: "0.1em", marginTop: "0.2rem" }}>{l}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        )}
-      </div>
+        )}</div>
 
       {/* Mountain */}
       <div>
