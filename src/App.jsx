@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import PourOver from './PourOver.jsx';
 
 const C = {
   bg: "#f2ede3",
@@ -661,6 +662,7 @@ export default function App() {
         <About />
         <Experience />
         <Projects />
+        <PourOver />
         <Skills />
         <Contact />
       </main>
