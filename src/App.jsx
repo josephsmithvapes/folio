@@ -371,13 +371,13 @@ function Experience() {
       role: "Coffeehouse Leader — General Manager",
       company: "Starbucks Coffee Company",
       period: "2018 – Present",
-      loc: "Los Angeles, CA · Tier 2 Drive-Thru",
+      loc: "Los Angeles, CA · Drive-Thru",
       bullets: [
-        "Lead 30+ partner team across all operational, staffing, and financial functions",
-        "Full P&L ownership — labor scheduling, COGS management, and revenue growth strategy",
-        "Built a culture of excellence; top-quartile partner engagement scores quarter over quarter",
-        "Developed internal talent pipeline — promoted 4 shift supervisors to management track",
-        "Drove consistent operational performance in one of the highest-volume formats in the district",
+        "Fostered relationships with local schools, churches, and first response departments to champion our community, team, and brand."
+        ,
+        "Consistently challenge the mindset of my tean and vise versa in order to create a dynamic - collaborative environment.",
+        "Planned & coordinated public events such as Music Cares, LA Aids Walk, LA Pride Parade, & National Night Out",
+        "Established as a trusted peer advisor in some of the most complex markets possible",
       ],
     },
     {
@@ -525,10 +525,10 @@ function Projects() {
 function Skills() {
   const { isMobile } = useBreakpoint();
   const groups = [
-    { label: "Operations", items: ["P&L Management", "Drive-Thru Ops", "Inventory & COGS", "Process Optimization", "Multi-Unit Awareness"] },
+    { label: "Operations", items: ["P&L Management", "Inventory", "Cash Management", "Food Safety", "Business Administration", "Staffing",] },
     { label: "Leadership", items: ["Team Development", "Talent Pipeline", "Change Management", "Partner Engagement", "Cross-functional Collab"] },
-    { label: "Tech & Build", items: ["React / Node.js", "Vite / GitHub CI/CD", "Anthropic API", "Python / Termux", "Data Analysis"] },
-    { label: "Strategy", items: ["Strategic Planning", "P&L Forecasting", "Customer Experience", "Market Research", "Relocation Analysis"] },
+    { label: "Tech & Build", items: ["Scheduling Software", "Audio Visual", "Web Development", "Excel", "Powerpoint"] },
+    { label: "Strategy", items: ["Strategic Planning", "P&L Forecasting", "Customer Experience", "Market Research", "Prioritization & Planning"] },
   ];
 
   return (
