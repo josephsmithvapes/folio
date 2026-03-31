@@ -249,7 +249,11 @@ function Hero() {
 
         {isMobile && (
           <div style={{ opacity: v ? 1 : 0, transition: "opacity 0.8s ease 0.4s", display: "flex", flexDirection: "column" }}>
-            <div style={{ background: C.ink, paddingTop: "4.5rem", paddingBottom: "1.8rem", paddingLeft: "1.8rem", paddingRight: "1.8rem", textAlign: "center", width: "100%", overflow: "hidden", position: "relative", overflow: "hidden" }}>
+            <div style={{ background: C.ink, paddingTop: "4.5rem", paddingBottom: "1.8rem", paddingLeft: "1.8rem", paddingRight: "1.8rem", textAlign: "center", width: "100%", position: "relative", overflow: "hidden" }}>
+              <div style={{ position: "absolute", top: 0, right: 0, bottom: 0, width: "55%", overflow: "hidden" }}>
+                <img src="/photo.jpg" alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", filter: "grayscale(100%) brightness(0.35)", display: "block" }} />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #1a1a1a 0%, rgba(26,26,26,0.5) 50%, transparent 100%)" }} />
+              </div>
               <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, opacity: 0.1 }}>
                 <svg viewBox="0 0 400 120" preserveAspectRatio="xMidYMax meet" style={{ width: "100%", display: "block" }}>
                   <g opacity="0.5">
