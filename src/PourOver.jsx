@@ -343,12 +343,12 @@ export default function PourOver({ isMobile }) {
 
   return (
     <section style={{ background:C.bg, borderTop:`5px solid ${C.ink}` }}>
-      <div style={{ background:C.green, padding: isMobile ? "1.2rem 1.5rem" : "1.5rem 3rem", display:"flex", justifyContent:"space-between", alignItems:"center" }}>
+      <div style={{ background:C.green, padding: isMobile ? "1.2rem 1.5rem" : "1.5rem 3rem", display:"flex", justifyContent:"space-around", alignItems:"center" }}>
         <div>
-          <h2 style={{ fontFamily:"'Arial Black',sans-serif", fontSize: isMobile ? "1.1rem" : "clamp(1.2rem,3vw,1.8rem)", fontWeight:900, color:C.bg, textTransform:"uppercase", margin:0, lineHeight:1 }}>The Perfect Pour Over</h2>
+          <h2 style={{ fontFamily:"'Arial Black',sans-serif", fontSize: isMobile ? "1.1rem" : "clamp(1.2rem,3vw,1.8rem)", fontWeight:900, color:C.bg, textTransform:"uppercase", margin:0, lineHeight:1, textAlign: "center"}}>The Coffee Master's Secret.</h2>
           <p style={{ fontFamily:"Georgia,serif", color:"rgba(242,237,227,0.6)", fontSize:"0.65rem", marginTop:"0.2rem", fontStyle:"italic" }}>9 steps · Tap any icon to learn</p>
         </div>
-        {!isMobile && <span style={{ fontFamily:"'Arial Black',sans-serif", color:"rgba(242,237,227,0.35)", fontSize:"0.52rem", letterSpacing:"0.15em", textTransform:"uppercase" }}>Swipe to browse</span>}
+        
       </div>
 
       <div
