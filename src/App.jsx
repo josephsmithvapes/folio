@@ -113,20 +113,34 @@ function Nav() {
 
         {!isMobile && (
           <div style={{ display: "flex", gap: "2rem" }}>
-            {links.map(l => (
-              <a key={l}
-  href={l === "Resume" ? "/Sky_Madsen_Resume.pdf" : `#${l.toLowerCase()}`}
-  download={l === "Resume" ? "/Sky_Madsen_Resume.pdf" : undefined}
-  target={l === "Resume" ? "_blank" : undefined}
-   style={{
-                fontFamily: "'Arial Black', sans-serif", color: C.ink, textDecoration: "none", fontSize: "0.6rem",
-                letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 900,
-                borderBottom: "2px solid transparent", paddingBottom: "2px", transition: "all 0.2s",
-              }}
-              onMouseOver={e => { e.target.style.borderColor = C.green; e.target.style.color = C.green; }}
-              onMouseOut={e => { e.target.style.borderColor = "transparent"; e.target.style.color = C.ink; }}
-              >{l}</a>
-            ))}
+           {links.map(l => (
+  l === "Resume" ? (
+    <button key={l}
+      onClick={() => { window.location.href="/Sky_Madsen_Resume.pdf"; }}
+      style={{
+        fontFamily: "'Arial Black', sans-serif", color: C.ink,
+        textDecoration: "none", fontSize: "0.6rem", background: "none",
+        border: "none", letterSpacing: "0.15em", textTransform: "uppercase",
+        fontWeight: 900, borderBottom: "2px solid transparent",
+        paddingBottom: "2px", transition: "all 0.2s", cursor: "pointer",
+      }}
+      onMouseOver={e => { e.target.style.borderColor = C.green; e.target.style.color = C.green; }}
+      onMouseOut={e => { e.target.style.borderColor = "transparent"; e.target.style.color = C.ink; }}
+    >Resume</button>
+  ) : (
+    <a key={l} href={`#${l.toLowerCase()}`}
+      style={{
+        fontFamily: "'Arial Black', sans-serif", color: C.ink,
+        textDecoration: "none", fontSize: "0.6rem",
+        letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 900,
+        borderBottom: "2px solid transparent",
+        paddingBottom: "2px", transition: "all 0.2s",
+      }}
+      onMouseOver={e => { e.target.style.borderColor = C.green; e.target.style.color = C.green; }}
+      onMouseOut={e => { e.target.style.borderColor = "transparent"; e.target.style.color = C.ink; }}
+    >{l}</a>
+  )
+))}
           </div>
         )}
 
@@ -352,7 +366,7 @@ function About() {
             <div style={{ marginTop: "2rem", display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)", gap: 0, border: `3px solid ${C.ink}` }}>
               {[
                 { label: "Current Role", value: "GM · Starbucks", sub: "Tier 2 Drive-Thru" },
-                { label: "Target", value: "Ops Director", sub: "Regional / District" },
+                { label: "", value: "Ops Director", sub: "Regional / District" },
                 { label: "Relocating", value: "PNW 2026", sub: "Washington · Oregon" },
               ].map((s, i) => (
                 <div key={s.label} style={{
@@ -420,8 +434,8 @@ function Experience() {
         {jobs.map((job, i) => (
           <Reveal key={i} delay={i * 100}>
             <div style={{ marginBottom: i < jobs.length - 1 ? "2rem" : 0, border: `3px solid ${C.ink}`, background: C.white, transition: "border-color 0.2s" }}
-              onMouseOver={e => e.currentTarget.style.borderColor = C.green}
-              onMouseOut={e => e.currentTarget.style.borderColor = C.ink}
+              onMouseOver={e => e.current.style.borderColor = C.green}
+              onMouseOut={e => e.current.style.borderColor = C.ink}
             >
               <div style={{ background: C.ink, padding: isMobile ? "1rem 1.2rem" : "1rem 1.8rem" }}>
                 <div style={{ fontFamily: "'Arial Black', sans-serif", fontSize: isMobile ? "0.78rem" : "0.95rem", color: C.bg, textTransform: "uppercase", fontWeight: 900, lineHeight: 1.3 }}>{job.role}</div>
@@ -510,8 +524,8 @@ function Projects() {
         {projects.map((p, i) => (
           <Reveal key={i} delay={i * 70}>
             <div style={{ border: "2px solid rgba(242,237,227,0.12)", background: "rgba(242,237,227,0.03)", padding: isMobile ? "1.3rem" : "1.8rem", display: "flex", flexDirection: "column", transition: "all 0.25s" }}
-              onMouseOver={e => { e.currentTarget.style.borderColor = C.greenLight; e.currentTarget.style.background = "rgba(45,90,39,0.15)"; }}
-              onMouseOut={e => { e.currentTarget.style.borderColor = "rgba(242,237,227,0.12)"; e.currentTarget.style.background = "rgba(242,237,227,0.03)"; }}
+              onMouseOver={e => { e.current.style.borderColor = C.greenLight; e.current.style.background = "rgba(45,90,39,0.15)"; }}
+              onMouseOut={e => { e.current.style.borderColor = "rgba(242,237,227,0.12)"; e.current.style.background = "rgba(242,237,227,0.03)"; }}
             >
               <div style={{ fontFamily: "'Arial Black', sans-serif", color: C.green, fontSize: "0.65rem", letterSpacing: "0.2em", marginBottom: "0.4rem" }}>{p.num}</div>
               <h3 style={{ fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: isMobile ? "0.85rem" : "0.95rem", textTransform: "uppercase", margin: "0 0 0.3rem", fontWeight: 900 }}>{p.name}</h3>
@@ -612,11 +626,13 @@ function Contact() {
 
         <Reveal delay={180}>
           {/* ── UPDATED: buttons centered */}
-          <div style={{ display: "flex", gap: "0.8rem", flexWrap: "wrap", justifyContent: isMobile ? "center" : "center" }}>
+          <div id="resume" style={{ display: "flex", gap: "0.8rem", flexWrap: "wrap", justifyContent: isMobile ? "center" : "center" }}>
             {[
               { label: "LinkedIn", href: "https://linkedin.com/in/moleculardeveloper" },
             
               { label: "Email", href: "mailto: verifiedbysky@gmail.com" },
+              { label: "Resume", href:"/Sky_Madsen_Resume.pdf"
+              },
             ].map(link => (
               <a key={link.label} href={link.href} style={{
                 textDecoration: "none",
