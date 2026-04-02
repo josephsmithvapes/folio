@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import PourOver from './PourOver.jsx';
+import PourOver from './components/PourOver.jsx';
+import SkillsSection from './components/SkillsSection_green.jsx';
+import RolesSection from './components/RolesSection_green.jsx';
 
 const C = {
   bg: "#f2ede3",
@@ -88,7 +90,7 @@ function Nav() {
     return () => window.removeEventListener("scroll", h);
   }, []);
 
-  const links = ["About", "Experience", "Projects", "Skills", "Contact"];
+  const links = ["About", "Experience", "Projects", "Skills", "Roles", "Contact", "Pour-Over"];
 
   return (
     <>
@@ -537,7 +539,7 @@ function Skills() {
   ];
 
   return (
-    <section id="skills" style={{ background: C.bg, borderTop: `5px solid ${C.ink}` }}>
+    <section a href="#SkillsSection" id="SkillsSection" style={{ background: C.bg, borderTop: `5px solid ${C.ink}` }}>
       <div style={{ background: C.ink, padding: isMobile ? "1.2rem 1.5rem" : "1.5rem 3rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <h2 style={{ fontFamily: "'Arial Black', sans-serif", fontSize: isMobile ? "1.3rem" : "clamp(1.2rem,3vw,2rem)", fontWeight: 900, color: C.bg, textTransform: "uppercase", margin: 0 }}>Skills</h2>
         {!isMobile && <span style={{ fontFamily: "'Arial Black', sans-serif", color: C.muted, fontSize: "0.52rem", letterSpacing: "0.15em", textTransform: "uppercase" }}>  04 — Skills</span>}
@@ -660,10 +662,11 @@ export default function App() {
       <main>
         <Hero />
         <About />
+        <SkillsSection />
         <Experience />
         <Projects />
+        <RolesSection />
         <PourOver />
-        <Skills />
         <Contact />
       </main>
     </>

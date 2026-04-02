@@ -342,8 +342,8 @@ export default function PourOver({ isMobile }) {
   }, [active]);
 
   return (
-    <section style={{ background:C.bg, borderTop:`5px solid ${C.ink}` }}>
-      <div href="#pour-over" id="pour-over" style={{ background:C.green, padding: isMobile ? "1.2rem 1.5rem" : "1.5rem 3rem", display:"flex", justifyContent:"space-around", alignItems:"center" }}>
+    <section id="pour-over" style={{ background:C.bg, borderTop:`5px solid ${C.ink}` }}>
+      <div style={{ background:C.green, padding: isMobile ? "1.2rem 1.5rem" : "1.5rem 3rem", display:"flex", justifyContent:"space-around", alignItems:"center" }}>
         <div>
           <h2 style={{ fontFamily:"'Arial Black',sans-serif", fontSize: isMobile ? "1.1rem" : "clamp(1.2rem,3vw,1.8rem)", fontWeight:900, color:C.bg, textTransform:"uppercase", margin:0, lineHeight:1, textAlign: "center"}}>The Coffee Master's Secret.</h2>
           <p style={{ fontFamily:"Georgia,serif", color:"rgba(242,237,227,0.6)", fontSize:"0.65rem", marginTop:"0.2rem", fontStyle:"italic" }}>9 steps · Tap any icon to learn</p>
