@@ -90,7 +90,7 @@ function Nav() {
     return () => window.removeEventListener("scroll", h);
   }, []);
 
-  const links = ["About", "Experience", "Projects", "Skills", "Roles", "Contact", "Pour-Over"];
+  const links = ["About", "Experience", "Projects", "Skills", "Roles", "Contact", "Pour-Over", "Resume"];
 
   return (
     <>
@@ -114,7 +114,11 @@ function Nav() {
         {!isMobile && (
           <div style={{ display: "flex", gap: "2rem" }}>
             {links.map(l => (
-              <a key={l} href={`#${l.toLowerCase()}`} style={{
+              <a key={l}
+  href={l === "Resume" ? "/Sky_Madsen_Resume.pdf" : `#${l.toLowerCase()}`}
+  download={l === "Resume" ? "/Sky_Madsen_Resume.pdf" : undefined}
+  target={l === "Resume" ? "_blank" : undefined}
+   style={{
                 fontFamily: "'Arial Black', sans-serif", color: C.ink, textDecoration: "none", fontSize: "0.6rem",
                 letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 900,
                 borderBottom: "2px solid transparent", paddingBottom: "2px", transition: "all 0.2s",
