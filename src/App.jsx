@@ -189,8 +189,8 @@ function Hero() {
             {/* B — trajectory label, now bold + green */}
             <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem", background: C.ink, padding: "0.3rem 0.7rem" }}>
               <span style={{ fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: "0.45rem", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 900 }}>GM</span>
-              <span style={{ color: C.green, fontSize: "0.5rem" }}>→</span>
-              <span style={{ fontFamily: "'Arial Black', sans-serif", color: C.green, fontSize: "0.45rem", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 900 }}>AI Integration+</span>
+              <span style={{ color: C.white, fontSize: "0.5rem" }}>→</span>
+              <span style={{ fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: "0.45rem", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 900 }}>AI Integration+</span>
             </div>
 
             {/* E — SKY solid / MADSEN outlined on two lines but tighter */}
