@@ -6,29 +6,8 @@ const TEXT = "#1a1a1a";
 
 const ROLES = [
   {
-    id: "dm",
-    annotation: "ROLE.001",
-    title: "District Manager",
-    tagline: "Multi-unit. One standard.",
-    icon: (
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-        <circle cx="20" cy="20" r="12" stroke={A} strokeWidth="1.5" fill="none" opacity="0.6"/>
-        {[{x:20,y:8},{x:30,y:26},{x:10,y:26}].map((p,i)=>(
-          <g key={i}>
-            <circle cx={p.x} cy={p.y} r="3.5" stroke={A} strokeWidth="1.5" fill="none"/>
-            <line x1={p.x} y1={p.y} x2="20" y2="20" stroke={A} strokeWidth="1" opacity="0.4"/>
-          </g>
-        ))}
-        <circle cx="20" cy="20" r="2.5" fill={A}/>
-      </svg>
-    ),
-    why: "Natural next step from GM. I've already been running one location like a district — systems that replicate, managers I develop, data I read across multiple revenue streams. I'm ready to do that across five locations instead of one.",
-    brings: "Multi-unit operational thinking, P&L ownership at scale, GM coaching frameworks, culture replication systems, high-volume drive-thru expertise.",
-    targets: "Starbucks, Dutch Bros, Chick-fil-A, Target, Costco, hotel management groups, QSR operators in the Pacific Northwest."
-  },
-  {
     id: "gm",
-    annotation: "ROLE.002",
+    annotation: "ROLE.001",
     title: "General Manager",
     tagline: "Full ownership. New environment.",
     icon: (
@@ -43,6 +22,24 @@ const ROLES = [
     why: "Ready to take full-site ownership to a new brand. Hotel GM is the primary target — operations, revenue, culture, and guest experience are the same core job I've been doing, in a new context I'm genuinely excited about.",
     brings: "High-volume ops experience, team development depth, P&L accountability, strong data habits, culture-building from scratch.",
     targets: "Marriott, Hilton, IHG, Hyatt properties in Pacific Northwest. Boutique hotel groups in Bend OR, Vancouver WA, Seattle WA, Tacoma WA."
+  },
+  {
+    id: "ecom",
+    annotation: "ROLE.002",
+    title: "E-Commerce Manager / Coordinator",
+    tagline: "Digital storefront ops.",
+    icon: (
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <rect x="10" y="16" width="20" height="16" rx="2" stroke={A} strokeWidth="1.5" fill="none"/>
+        <path d="M14 16 V11 C14 8 26 8 26 11 V16" stroke={A} strokeWidth="1.5" fill="none"/>
+        <circle cx="15" cy="23" r="1.5" fill={A}/>
+        <line x1="19" y1="23" x2="25" y2="23" stroke={A} strokeWidth="1.5" opacity="0.5"/>
+        <line x1="15" y1="27" x2="25" y2="27" stroke={A} strokeWidth="1.5" opacity="0.5"/>
+      </svg>
+    ),
+    why: "Translating physical retail success to digital storefronts. Managing product catalogs, customer journeys, and order fulfillment processes leverages both my ops experience and technical instincts.",
+    brings: "Inventory management, CX optimization, analytics tracking, cross-functional collaboration, process building, and technical adaptability.",
+    targets: "DTC brands, local retailers scaling online, specialty food/beverage e-commerce, outdoor gear brands in the PNW."
   },
   {
     id: "ops",
@@ -86,8 +83,29 @@ const ROLES = [
     targets: "Construction, tech product teams, healthcare, retail expansion, ops-adjacent PM roles. Any org that values operators who can run a project end-to-end."
   },
   {
-    id: "tech",
+    id: "dm",
     annotation: "ROLE.005",
+    title: "District Manager",
+    tagline: "Multi-unit. One standard.",
+    icon: (
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="12" stroke={A} strokeWidth="1.5" fill="none" opacity="0.6"/>
+        {[{x:20,y:8},{x:30,y:26},{x:10,y:26}].map((p,i)=>(
+          <g key={i}>
+            <circle cx={p.x} cy={p.y} r="3.5" stroke={A} strokeWidth="1.5" fill="none"/>
+            <line x1={p.x} y1={p.y} x2="20" y2="20" stroke={A} strokeWidth="1" opacity="0.4"/>
+          </g>
+        ))}
+        <circle cx="20" cy="20" r="2.5" fill={A}/>
+      </svg>
+    ),
+    why: "Natural next step from GM. I've already been running one location like a district — systems that replicate, managers I develop, data I read across multiple revenue streams. I'm ready to do that across five locations instead of one.",
+    brings: "Multi-unit operational thinking, P&L ownership at scale, GM coaching frameworks, culture replication systems, high-volume drive-thru expertise.",
+    targets: "Starbucks, Dutch Bros, Chick-fil-A, Target, Costco, hotel management groups, QSR operators in the Pacific Northwest."
+  },
+  {
+    id: "tech",
+    annotation: "ROLE.006",
     title: "Tech & Admin Roles",
     tagline: "Ops brain. Builder instincts.",
     icon: (

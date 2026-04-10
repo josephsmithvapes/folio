@@ -435,6 +435,13 @@ export default function SkillsSection() {
   const [animKey, setAnimKey] = useState(0);
   const modalRef = useRef(null);
 
+  const scrollContainerRef = useRef(null);
+  const animationRef = useRef(null);
+  const directionRef = useRef(1);
+  const exactScrollRef = useRef(0);
+  const isHoveredRef = useRef(false);
+  const isActiveRef = useRef(false);
+
   const open = (id) => { setActive(id); setStep(0); setAnimKey(k => k + 1); };
   const close = () => setActive(null);
   const goStep = (n) => { setStep(n); setAnimKey(k => k + 1); };
@@ -442,10 +449,42 @@ export default function SkillsSection() {
   const skill = SKILLS.find(s => s.id === active);
 
   useEffect(() => {
+    isActiveRef.current = active !== null;
     const handler = (e) => { if (modalRef.current && !modalRef.current.contains(e.target)) close(); };
     if (active) document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
   }, [active]);
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    exactScrollRef.current = container.scrollLeft;
+
+    const animate = () => {
+      if (!isHoveredRef.current && !isActiveRef.current && container.scrollWidth > container.clientWidth) {
+        exactScrollRef.current += directionRef.current * 0.4;
+        
+        const maxScroll = container.scrollWidth - container.clientWidth;
+
+        if (exactScrollRef.current <= 0) {
+          directionRef.current = 1;
+          exactScrollRef.current = 0;
+        } else if (exactScrollRef.current >= maxScroll) {
+          directionRef.current = -1;
+          exactScrollRef.current = maxScroll;
+        }
+        
+        container.scrollLeft = exactScrollRef.current;
+      } else {
+        exactScrollRef.current = container.scrollLeft;
+      }
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationRef.current);
+  }, []);
 
   return (
     <div id="skills" style={{
@@ -453,9 +492,29 @@ export default function SkillsSection() {
       backgroundImage: "radial-gradient(circle at 20% 50%, rgba(45,90,39,0.07) 0%, transparent 60%)",
       fontFamily: "Arial Black, Arial, sans-serif",
       padding: "64px 24px",
-      minHeight: "100vh",
       position: "relative"
     }}>
+      <style>{`
+        .skills-grid {
+          display: flex;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          padding-bottom: 8px;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        .skills-grid::-webkit-scrollbar { display: none; }
+        .skill-card { flex: 0 0 160px; }
+        @media (max-width: 768px) {
+          .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            overflow-x: visible;
+            padding-bottom: 0;
+          }
+          .skill-card { flex: auto; }
+        }
+      `}</style>
       {/* Grid overlay */}
       <div style={{
         position: "absolute", inset: 0, pointerEvents: "none", overflow: "hidden",
@@ -475,16 +534,19 @@ export default function SkillsSection() {
       </div>
 
       {/* Skill Cards */}
-      <div style={{
+      <div className="skills-grid" ref={scrollContainerRef}
+        onMouseEnter={() => { isHoveredRef.current = true; }}
+        onMouseLeave={() => { isHoveredRef.current = false; }}
+        onTouchStart={() => { isHoveredRef.current = true; }}
+        onTouchEnd={() => { isHoveredRef.current = false; }}
+        style={{
         maxWidth: 900, margin: "0 auto",
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
         gap: 16
       }}>
         {SKILLS.map((s) => {
           const Icon = ICON_MAP[s.id];
           return (
-            <button key={s.id} onClick={() => open(s.id)}
+            <button key={s.id} className="skill-card" onClick={() => open(s.id)}
               style={{
                 background: "rgba(45,90,39,0.04)", border: "1px solid rgba(45,90,39,0.15)",
                 borderRadius: 4, padding: "28px 20px 24px", cursor: "pointer",
