@@ -484,7 +484,6 @@ function Projects() {
       impact: "Built a full personal ops dashboard from a phone",
       desc: "Full-stack personal operations dashboard. React + Node.js + Vite. Deployed via GitHub Actions CI/CD directly from an Android device. Includes Job Tracker, Housing Tracker, Move Budget, Milestone Tracker, and automated deployment notifications.",
       tech: ["React", "Node.js", "Vite", "GitHub Actions"],
-      url: "github.com/josephsmithvapes/Command-center",
     },
     {
       num: "02",
@@ -495,20 +494,22 @@ function Projects() {
     },
     {
       num: "03",
-      name: "Market Intelligence Pipeline",
-      impact: "Automated research pipeline running 24/7",
-      desc: "Always-on data pipeline ingesting news feeds, government data, and market signals on a scheduled basis. Includes a master run script, validation framework, and safety gate before any action is taken.",
-      tech: ["Python", "Automation", "Data Feeds", "Scheduling"],
+      name: "Brand + Operational Engineering",
+      impact: "Small business startup engine with brand-building momentum",
+      desc: "A startup-focused business engine designed to accelerate brand discovery, customer engagement, and launch readiness. Live at www.coldbrewboldcrew.com, it combines flexible product positioning, marketing narrative, and community-friendly messaging to support early-stage growth.",
+      tech: ["Branding", "Startup Strategy", "Go-to-Market", "Growth"],
+      url: "www.coldbrewboldcrew.com",
     },
     {
       num: "04",
-      name: "LinkedIn Content System",
-      impact: "Consistent professional presence without the grind",
-      desc: "Content generation tool with 6 post formats, 4 tone modes, and a built-in preview simulator. Includes a persistent post library and one-click copy to clipboard. Built to keep a professional presence active while focused on the job search.",
-      tech: ["React", "Content Strategy", "UI/UX"],
+      name: "AI Integration+",
+      impact: "Live platform for practical AI integration + business acceleration",
+      desc: "AI Integration+ is a client-facing service platform focused on practical AI adoption, transformation narratives, and clear value pathways. The site at www.aii.coach showcases consulting packages, conversion flows, and real-world modernization messaging.",
+      tech: ["AI Strategy", "Platform", "Consulting", "Live Site"],
+      url: "www.aii.coach",
     },
   ];
-0
+
   return (
     <section id="projects" style={{ background: C.ink, borderTop: `5px solid ${C.green}` }}>
       {/* ── UPDATED: section header with subtitle */}
@@ -523,22 +524,43 @@ function Projects() {
       <div style={{ padding: isMobile ? "1.5rem" : "3rem", display: "grid", gridTemplateColumns: isMobile ? "1fr" : isTablet ? "1fr" : "1fr 1fr", gap: "1.2rem" }}>
         {projects.map((p, i) => (
           <Reveal key={i} delay={i * 70}>
-            <div style={{ border: "2px solid rgba(242,237,227,0.12)", background: "rgba(242,237,227,0.03)", padding: isMobile ? "1.3rem" : "1.8rem", display: "flex", flexDirection: "column", transition: "all 0.25s" }}
-              onMouseOver={e => { e.current.style.borderColor = C.greenLight; e.current.style.background = "rgba(45,90,39,0.15)"; }}
-              onMouseOut={e => { e.current.style.borderColor = "rgba(242,237,227,0.12)"; e.current.style.background = "rgba(242,237,227,0.03)"; }}
-            >
-              <div style={{ fontFamily: "'Arial Black', sans-serif", color: C.green, fontSize: "0.65rem", letterSpacing: "0.2em", marginBottom: "0.4rem" }}>{p.num}</div>
-              <h3 style={{ fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: isMobile ? "0.85rem" : "0.95rem", textTransform: "uppercase", margin: "0 0 0.3rem", fontWeight: 900 }}>{p.name}</h3>
-              {/* ── NEW: impact statement */}
-              <p style={{ fontFamily: "Georgia,serif", color: C.greenLight, fontSize: "0.78rem", fontStyle: "italic", margin: "0 0 0.7rem", lineHeight: 1.4 }}>{p.impact}</p>
-              <p style={{ fontFamily: "Georgia,serif", color: "#8a8580", lineHeight: 1.7, fontSize: isMobile ? "0.78rem" : "0.82rem", flex: 1 }}>{p.desc}</p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", marginTop: "1rem" }}>
-                {p.tech.map(t => (
-                  <span key={t} style={{ fontFamily: "'Arial Black', sans-serif", fontSize: "0.5rem", letterSpacing: "0.1em", textTransform: "uppercase", color: C.greenLight, border: "1px solid rgba(61,122,53,0.4)", padding: "0.2rem 0.5rem" }}>{t}</span>
-                ))}
+            {p.name === "AI Integration+" ? (
+              <a href={`https://${p.url}`} target="_blank" rel="noreferrer" style={{ textDecoration: "none", color: "inherit" }}>
+                <div style={{ border: "2px solid rgba(242,237,227,0.12)", background: "rgba(242,237,227,0.03)", padding: isMobile ? "1.3rem" : "1.8rem", display: "flex", flexDirection: "column", transition: "all 0.25s", minHeight: isMobile ? "auto" : "340px" }}
+                  onMouseOver={e => { e.current.style.borderColor = C.greenLight; e.current.style.background = "rgba(45,90,39,0.15)"; }}
+                  onMouseOut={e => { e.current.style.borderColor = "rgba(242,237,227,0.12)"; e.current.style.background = "rgba(242,237,227,0.03)"; }}
+                >
+                  <div style={{ fontFamily: "'Arial Black', sans-serif", color: C.green, fontSize: "0.65rem", letterSpacing: "0.2em", marginBottom: "0.4rem" }}>{p.num}</div>
+                  <h3 style={{ fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: isMobile ? "0.85rem" : "0.95rem", textTransform: "uppercase", margin: "0 0 0.3rem", fontWeight: 900 }}>{p.name}</h3>
+                  {/* ── NEW: impact statement */}
+                  <p style={{ fontFamily: "Georgia,serif", color: C.greenLight, fontSize: "0.78rem", fontStyle: "italic", margin: "0 0 0.7rem", lineHeight: 1.4 }}>{p.impact}</p>
+                  <p style={{ fontFamily: "Georgia,serif", color: "#8a8580", lineHeight: 1.7, fontSize: isMobile ? "0.78rem" : "0.82rem", flex: 1 }}>{p.desc}</p>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", marginTop: "1rem" }}>
+                    {p.tech.map(t => (
+                      <span key={t} style={{ fontFamily: "'Arial Black', sans-serif", fontSize: "0.5rem", letterSpacing: "0.1em", textTransform: "uppercase", color: C.greenLight, border: "1px solid rgba(61,122,53,0.4)", padding: "0.2rem 0.5rem" }}>{t}</span>
+                    ))}
+                  </div>
+                  {p.url && <div style={{ marginTop: "0.7rem", fontFamily: "Georgia,serif", color: C.greenLight, fontSize: "0.68rem" }}>→ {p.url}</div>}
+                </div>
+              </a>
+            ) : (
+              <div style={{ border: "2px solid rgba(242,237,227,0.12)", background: "rgba(242,237,227,0.03)", padding: isMobile ? "1.3rem" : "1.8rem", display: "flex", flexDirection: "column", transition: "all 0.25s", minHeight: isMobile ? "auto" : "340px" }}
+                onMouseOver={e => { e.current.style.borderColor = C.greenLight; e.current.style.background = "rgba(45,90,39,0.15)"; }}
+                onMouseOut={e => { e.current.style.borderColor = "rgba(242,237,227,0.12)"; e.current.style.background = "rgba(242,237,227,0.03)"; }}
+              >
+                <div style={{ fontFamily: "'Arial Black', sans-serif", color: C.green, fontSize: "0.65rem", letterSpacing: "0.2em", marginBottom: "0.4rem" }}>{p.num}</div>
+                <h3 style={{ fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: isMobile ? "0.85rem" : "0.95rem", textTransform: "uppercase", margin: "0 0 0.3rem", fontWeight: 900 }}>{p.name}</h3>
+                {/* ── NEW: impact statement */}
+                <p style={{ fontFamily: "Georgia,serif", color: C.greenLight, fontSize: "0.78rem", fontStyle: "italic", margin: "0 0 0.7rem", lineHeight: 1.4 }}>{p.impact}</p>
+                <p style={{ fontFamily: "Georgia,serif", color: "#8a8580", lineHeight: 1.7, fontSize: isMobile ? "0.78rem" : "0.82rem", flex: 1 }}>{p.desc}</p>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", marginTop: "1rem" }}>
+                  {p.tech.map(t => (
+                    <span key={t} style={{ fontFamily: "'Arial Black', sans-serif", fontSize: "0.5rem", letterSpacing: "0.1em", textTransform: "uppercase", color: C.greenLight, border: "1px solid rgba(61,122,53,0.4)", padding: "0.2rem 0.5rem" }}>{t}</span>
+                  ))}
+                </div>
+                {p.url && <div style={{ marginTop: "0.7rem", fontFamily: "Georgia,serif", color: C.greenLight, fontSize: "0.68rem" }}>→ {p.url}</div>}
               </div>
-              {p.url && <div style={{ marginTop: "0.7rem", fontFamily: "Georgia,serif", color: C.greenLight, fontSize: "0.68rem" }}>→ {p.url}</div>}
-            </div>
+            )}
           </Reveal>
         ))}
       </div>
