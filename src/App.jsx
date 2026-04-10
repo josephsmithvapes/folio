@@ -58,13 +58,14 @@ function useInView(threshold = 0.1) {
   return [ref, v];
 }
 
-function Reveal({ children, delay = 0 }) {
+function Reveal({ children, delay = 0, stretch = false }) {
   const [ref, v] = useInView();
   return (
     <div ref={ref} style={{
       opacity: v ? 1 : 0,
       transform: v ? "none" : "translateY(20px)",
       transition: `opacity 0.65s ease ${delay}ms, transform 0.65s ease ${delay}ms`,
+      height: stretch ? "100%" : undefined,
     }}>{children}</div>
   );
 }
@@ -451,7 +452,7 @@ function Experience() {
 
 // ─── PROJECTS ─────────────────────────────────────────────────────────────────
 function Projects() {
-  const { isMobile, isTablet } = useBreakpoint();
+  const { isMobile } = useBreakpoint();
 
   // ── UPDATED: no AI mentions, impact statements added
   const projects = [
@@ -497,54 +498,67 @@ function Projects() {
         {!isMobile && <span style={{ fontFamily: "'Arial Black', sans-serif", color: "rgba(242,237,227,0.4)", fontSize: "0.52rem", letterSpacing: "0.15em", textTransform: "uppercase" }}>  03</span>}
       </div>
 
-      <div style={{ padding: isMobile ? "1.5rem" : "3rem", display: "grid", gridTemplateColumns: isMobile ? "1fr" : isTablet ? "1fr" : "1fr 1fr", gap: "1.2rem" }}>
-        {projects.map((p, i) => (
-          <Reveal key={i} delay={i * 70}>
-            {p.name === "AI Integration+" ? (
-              <a href={`https://${p.url}`} target="_blank" rel="noreferrer" style={{ textDecoration: "none", color: "inherit", display: "block" }}>
-                <div style={{ border: "2px solid rgba(242,237,227,0.12)", background: "rgba(242,237,227,0.03)", padding: isMobile ? "1.3rem" : "1.8rem", display: "flex", flexDirection: "column", transition: "all 0.25s" }}
-                  onMouseOver={e => { e.current.style.borderColor = C.greenLight; e.current.style.background = "rgba(45,90,39,0.15)"; }}
-                  onMouseOut={e => { e.current.style.borderColor = "rgba(242,237,227,0.12)"; e.current.style.background = "rgba(242,237,227,0.03)"; }}
-                >
-                  <div style={{ fontFamily: "'Arial Black', sans-serif", color: C.green, fontSize: "0.65rem", letterSpacing: "0.2em", marginBottom: "0.4rem" }}>{p.num}</div>
-                  <h3 style={{ fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: isMobile ? "0.85rem" : "0.95rem", textTransform: "uppercase", margin: "0 0 0.3rem", fontWeight: 900, display: "flex", alignItems: "center", gap: "0.5rem", flexWrap: "wrap" }}>
-                    {p.name}
-                    <span style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", background: "#e53935", color: "#fff", fontSize: "0.48rem", letterSpacing: "0.15em", padding: "0.25rem 0.5rem", borderRadius: "3px" }}>
-                      <span style={{ width: 5, height: 5, background: "#fff", borderRadius: "50%", display: "inline-block", animation: "livePulse 2s infinite" }}></span>
-                      LIVE
-                    </span>
-                  </h3>
-                  {/* ── NEW: impact statement */}
-                  <p style={{ fontFamily: "Georgia,serif", color: C.greenLight, fontSize: "0.78rem", fontStyle: "italic", margin: "0 0 0.7rem", lineHeight: 1.4 }}>{p.impact}</p>
-                  <p style={{ fontFamily: "Georgia,serif", color: "#8a8580", lineHeight: 1.7, fontSize: isMobile ? "0.78rem" : "0.82rem", flex: 1 }}>{p.desc}</p>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", marginTop: "1rem" }}>
-                    {p.tech.map(t => (
-                      <span key={t} style={{ fontFamily: "'Arial Black', sans-serif", fontSize: "0.5rem", letterSpacing: "0.1em", textTransform: "uppercase", color: C.greenLight, border: "1px solid rgba(61,122,53,0.4)", padding: "0.2rem 0.5rem" }}>{t}</span>
-                    ))}
-                  </div>
-                  {p.url && <div style={{ marginTop: "0.7rem", fontFamily: "Georgia,serif", color: C.greenLight, fontSize: "0.68rem" }}>→ {p.url}</div>}
-                </div>
-              </a>
-            ) : (
-              <div style={{ border: "2px solid rgba(242,237,227,0.12)", background: "rgba(242,237,227,0.03)", padding: isMobile ? "1.3rem" : "1.8rem", display: "flex", flexDirection: "column", transition: "all 0.25s" }}
-                onMouseOver={e => { e.current.style.borderColor = C.greenLight; e.current.style.background = "rgba(45,90,39,0.15)"; }}
-                onMouseOut={e => { e.current.style.borderColor = "rgba(242,237,227,0.12)"; e.current.style.background = "rgba(242,237,227,0.03)"; }}
-              >
-                <div style={{ fontFamily: "'Arial Black', sans-serif", color: C.green, fontSize: "0.65rem", letterSpacing: "0.2em", marginBottom: "0.4rem" }}>{p.num}</div>
-                <h3 style={{ fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: isMobile ? "0.85rem" : "0.95rem", textTransform: "uppercase", margin: "0 0 0.3rem", fontWeight: 900 }}>{p.name}</h3>
-                {/* ── NEW: impact statement */}
-                <p style={{ fontFamily: "Georgia,serif", color: C.greenLight, fontSize: "0.78rem", fontStyle: "italic", margin: "0 0 0.7rem", lineHeight: 1.4 }}>{p.impact}</p>
-                <p style={{ fontFamily: "Georgia,serif", color: "#8a8580", lineHeight: 1.7, fontSize: isMobile ? "0.78rem" : "0.82rem", flex: 1 }}>{p.desc}</p>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", marginTop: "1rem" }}>
-                  {p.tech.map(t => (
-                    <span key={t} style={{ fontFamily: "'Arial Black', sans-serif", fontSize: "0.5rem", letterSpacing: "0.1em", textTransform: "uppercase", color: C.greenLight, border: "1px solid rgba(61,122,53,0.4)", padding: "0.2rem 0.5rem" }}>{t}</span>
-                  ))}
-                </div>
-                {p.url && <div style={{ marginTop: "0.7rem", fontFamily: "Georgia,serif", color: C.greenLight, fontSize: "0.68rem" }}>→ {p.url}</div>}
+      <div style={{ padding: isMobile ? "1.5rem" : "3rem", display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "1.5rem", alignItems: "stretch" }}>
+        {projects.map((p, i) => {
+          const card = (
+            <div
+              style={{
+                border: "2px solid rgba(242,237,227,0.12)",
+                background: "rgba(242,237,227,0.03)",
+                padding: "1.8rem",
+                display: "flex",
+                flexDirection: "column",
+                height: "100%",
+                boxSizing: "border-box",
+                transition: "border-color 0.2s, background 0.2s",
+                cursor: p.url ? "pointer" : "default",
+                textAlign: isMobile ? "left" : "center",
+              }}
+              onMouseOver={e => { e.currentTarget.style.borderColor = C.greenLight; e.currentTarget.style.background = "rgba(45,90,39,0.12)"; }}
+              onMouseOut={e => { e.currentTarget.style.borderColor = "rgba(242,237,227,0.12)"; e.currentTarget.style.background = "rgba(242,237,227,0.03)"; }}
+            >
+              {/* num */}
+              <div style={{ fontFamily: "'Arial Black', sans-serif", color: C.green, fontSize: "0.6rem", letterSpacing: "0.25em", marginBottom: "0.6rem" }}>{p.num}</div>
+
+              {/* title row */}
+              <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", flexWrap: "wrap", marginBottom: "0.5rem", justifyContent: isMobile ? "flex-start" : "center" }}>
+                <h3 style={{ fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: "0.95rem", textTransform: "uppercase", margin: 0, fontWeight: 900, lineHeight: 1.2 }}>{p.name}</h3>
+                {p.url && (
+                  <span style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", background: "#c62828", color: "#fff", fontSize: "0.42rem", letterSpacing: "0.15em", padding: "0.2rem 0.45rem", flexShrink: 0 }}>
+                    <span style={{ width: 4, height: 4, background: "#fff", borderRadius: "50%", display: "inline-block" }} />
+                    LIVE
+                  </span>
+                )}
               </div>
-            )}
-          </Reveal>
-        ))}
+
+              {/* impact */}
+              <p style={{ fontFamily: "Georgia,serif", color: C.greenLight, fontSize: "0.78rem", fontStyle: "italic", margin: "0 0 0.8rem", lineHeight: 1.4 }}>{p.impact}</p>
+
+              {/* desc — flex:1 pushes footer to bottom */}
+              <p style={{ fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.45)", lineHeight: 1.75, fontSize: "0.82rem", margin: "0 0 1.2rem", flex: 1 }}>{p.desc}</p>
+
+              {/* tech tags */}
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", justifyContent: isMobile ? "flex-start" : "center" }}>
+                {p.tech.map(t => (
+                  <span key={t} style={{ fontFamily: "'Arial Black', sans-serif", fontSize: "0.45rem", letterSpacing: "0.1em", textTransform: "uppercase", color: C.greenLight, border: "1px solid rgba(61,122,53,0.35)", padding: "0.2rem 0.5rem" }}>{t}</span>
+                ))}
+              </div>
+
+              {/* url */}
+              {p.url && (
+                <div style={{ marginTop: "0.8rem", fontFamily: "'Arial Black', sans-serif", fontSize: "0.45rem", letterSpacing: "0.12em", color: C.greenLight, textTransform: "uppercase" }}>→ {p.url}</div>
+              )}
+            </div>
+          );
+
+          return (
+            <Reveal key={i} delay={i * 80} stretch>
+              {p.url
+                ? <a href={`https://${p.url}`} target="_blank" rel="noreferrer" style={{ display: "block", height: "100%", textDecoration: "none", color: "inherit" }}>{card}</a>
+                : card}
+            </Reveal>
+          );
+        })}
       </div>
     </section>
   );
