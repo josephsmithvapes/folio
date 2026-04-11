@@ -313,7 +313,7 @@ function DetailPanel({ step, stepIndex, total, onClose, onPrev, onNext, isMobile
           <div style={{ fontFamily:"'Arial Black',sans-serif", color:C.green, fontSize:"0.52rem", letterSpacing:"0.2em", textTransform:"uppercase", marginBottom:"0.3rem" }}>Step {step.id} of {total}</div>
           <h3 style={{ fontFamily:"'Arial Black',sans-serif", color:C.ink, fontSize: isMobile ? "1rem" : "1.2rem", textTransform:"uppercase", fontWeight:900, margin:0 }}>{step.title}</h3>
         </div>
-        <button onClick={onClose} style={{ background:"none", border:`2px solid ${C.subtle}`, color:C.muted, cursor:"pointer", padding:"0.35rem 0.7rem", fontFamily:"'Arial Black',sans-serif", fontSize:"0.6rem" }}>✕</button>
+        <button onClick={onClose} aria-label="Close" style={{ background:"none", border:`2px solid ${C.subtle}`, color:C.muted, cursor:"pointer", padding:"0.35rem 0.7rem", fontFamily:"'Arial Black',sans-serif", fontSize:"0.6rem" }}>✕</button>
       </div>
       <div style={{ background:C.greenPale, border:`2px solid ${C.green}`, padding:"0.55rem 1rem", marginBottom:"1.1rem", fontFamily:"'Arial Black',sans-serif", fontSize:"0.52rem", color:C.green, letterSpacing:"0.08em", textTransform:"uppercase", fontWeight:900 }}>{step.spec}</div>
       <p style={{ fontFamily:"Georgia,serif", fontSize: isMobile ? "0.88rem" : "0.95rem", color:"#444", lineHeight:1.85, maxWidth:"640px" }}>{step.detail}</p>

@@ -26,7 +26,7 @@ function useBreakpoint() {
 
 function MtnRange({ height = "70px", style = {} }) {
   return (
-    <svg viewBox="0 0 1000 180" preserveAspectRatio="none" style={{ width: "100%", height, display: "block", ...style }}>
+    <svg aria-hidden="true" viewBox="0 0 1000 180" preserveAspectRatio="none" style={{ width: "100%", height, display: "block", ...style }}>
       <polygon points="0,180 80,90 160,130 260,50 360,100 460,30 560,80 660,40 760,90 860,60 1000,180" fill={C.ink} opacity="0.18" />
       <polygon points="0,180 100,110 200,140 340,70 440,120 540,50 640,100 740,70 850,110 1000,180" fill={C.ink} opacity="0.45" />
       <polygon points="0,180 150,130 280,160 400,100 520,150 650,110 780,140 1000,180" fill={C.ink} />
@@ -37,7 +37,7 @@ function MtnRange({ height = "70px", style = {} }) {
 
 function MtnHero({ isMobile }) {
   return (
-    <svg viewBox="0 0 1200 320" preserveAspectRatio="none" style={{ width: "100%", height: isMobile ? "120px" : "220px", display: "block" }}>
+    <svg aria-hidden="true" viewBox="0 0 1200 320" preserveAspectRatio="none" style={{ width: "100%", height: isMobile ? "120px" : "220px", display: "block" }}>
       <polygon points="0,320 100,160 220,230 380,80 500,150 620,40 740,120 860,70 980,140 1100,90 1200,320" fill={C.green} opacity="0.18" />
       <polygon points="0,320 80,200 200,250 360,110 480,180 600,70 720,150 840,100 960,170 1100,120 1200,320" fill={C.green} opacity="0.4" />
       <polygon points="0,320 120,230 260,270 420,160 560,220 680,140 800,200 920,160 1060,210 1200,320" fill={C.ink} opacity="0.85" />
@@ -89,7 +89,7 @@ function Nav() {
         display: "flex", justifyContent: "space-between", alignItems: "center",
         fontFamily: "'Arial Black', sans-serif",
       }}>
-        <a href="#hero" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.6rem" }}>
+        <a href="#hero" aria-label="Sky Madsen — back to top" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.6rem" }}>
           <div style={{ width: 32, height: 32, background: C.ink, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
             <span style={{ fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: "0.65rem", fontWeight: 900 }}>SM</span>
           </div>
@@ -129,10 +129,16 @@ function Nav() {
         )}
 
         {isMobile && (
-          <button onClick={() => setMenuOpen(!menuOpen)} style={{
-            background: "none", border: `2px solid ${C.ink}`, padding: "0.3rem 0.5rem",
-            cursor: "pointer", display: "flex", flexDirection: "column", gap: "4px",
-          }}>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
+            style={{
+              background: "none", border: `2px solid ${C.ink}`, padding: "0.3rem 0.5rem",
+              cursor: "pointer", display: "flex", flexDirection: "column", gap: "4px",
+            }}
+          >
             {[0,1,2].map(i => (
               <span key={i} style={{ display: "block", width: "18px", height: "2px", background: C.ink }} />
             ))}
@@ -141,7 +147,7 @@ function Nav() {
       </nav>
 
       {isMobile && menuOpen && (
-        <div style={{
+        <div id="mobile-nav" role="navigation" aria-label="Mobile navigation" style={{
           position: "fixed", top: "51px", left: 0, right: 0, zIndex: 99,
           background: C.bg, borderBottom: `3px solid ${C.ink}`,
           display: "flex", flexDirection: "column",

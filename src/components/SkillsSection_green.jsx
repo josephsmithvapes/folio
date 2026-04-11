@@ -546,7 +546,7 @@ export default function SkillsSection() {
         {SKILLS.map((s) => {
           const Icon = ICON_MAP[s.id];
           return (
-            <button key={s.id} className="skill-card" onClick={() => open(s.id)}
+            <button key={s.id} className="skill-card" onClick={() => open(s.id)} aria-label={`View ${s.label} skill details`}
               style={{
                 background: "rgba(45,90,39,0.04)", border: "1px solid rgba(45,90,39,0.15)",
                 borderRadius: 4, padding: "28px 20px 24px", cursor: "pointer",
@@ -585,7 +585,7 @@ export default function SkillsSection() {
           display: "flex", alignItems: "center", justifyContent: "center",
           padding: 16
         }}>
-          <div ref={modalRef} style={{
+          <div ref={modalRef} role="dialog" aria-modal="true" aria-label={skill.label} style={{
             background: BG, border: "1px solid rgba(45,90,39,0.22)", borderRadius: 4,
             width: "100%", maxWidth: 600, position: "relative", overflow: "hidden",
             boxShadow: "0 8px 48px rgba(45,90,39,0.1), 0 0 1px rgba(45,90,39,0.2)"
@@ -609,7 +609,7 @@ export default function SkillsSection() {
                     {skill.tagline}
                   </div>
                 </div>
-                <button onClick={close} style={{
+                <button onClick={close} aria-label="Close" style={{
                   background: "none", border: "1px solid rgba(45,90,39,0.2)", color: A,
                   fontFamily: "monospace", fontSize: 12, padding: "4px 10px",
                   cursor: "pointer", borderRadius: 2, letterSpacing: 1
@@ -620,7 +620,7 @@ export default function SkillsSection() {
             {/* Step indicators */}
             <div style={{ display: "flex", borderBottom: "1px solid rgba(45,90,39,0.1)" }}>
               {skill.steps.map((s, i) => (
-                <button key={i} onClick={() => goStep(i)} style={{
+                <button key={i} onClick={() => goStep(i)} aria-label={`Step ${i+1}: ${s.title}`} aria-current={step===i ? "step" : undefined} style={{
                   flex: 1, padding: "12px 8px", background: step===i ? "rgba(45,90,39,0.07)" : "transparent",
                   border: "none", borderRight: i<2 ? "1px solid rgba(45,90,39,0.1)" : "none",
                   borderBottom: step===i ? `2px solid ${A}` : "2px solid transparent",
@@ -654,7 +654,7 @@ export default function SkillsSection() {
 
             {/* Navigation */}
             <div style={{ padding: "0 24px 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <button onClick={() => goStep(Math.max(0, step-1))} disabled={step===0} style={{
+              <button onClick={() => goStep(Math.max(0, step-1))} disabled={step===0} aria-label="Previous step" style={{
                 background: "none", border: `1px solid rgba(45,90,39,${step===0?0.1:0.22})`,
                 color: step===0 ? "rgba(45,90,39,0.22)" : A,
                 fontFamily: "monospace", fontSize: 11, padding: "6px 16px",
@@ -673,6 +673,7 @@ export default function SkillsSection() {
 
               <button onClick={() => goStep(Math.min(skill.steps.length-1, step+1))}
                 disabled={step===skill.steps.length-1}
+                aria-label="Next step"
                 style={{
                   background: step===skill.steps.length-1 ? "none" : "rgba(45,90,39,0.07)",
                   border: `1px solid rgba(45,90,39,${step===skill.steps.length-1?0.1:0.22})`,
