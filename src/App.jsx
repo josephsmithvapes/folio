@@ -186,13 +186,6 @@ function Hero() {
           borderRight: `5px solid ${C.ink}`,
         }}>
           <div style={{ opacity: v ? 1 : 0, transform: v ? "none" : "translateY(20px)", transition: "all 0.7s ease 0.1s" }}>
-            {/* B — trajectory label, now bold + green */}
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem", background: C.ink, padding: "0.3rem 0.7rem" }}>
-              <span style={{ fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: "0.45rem", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 900 }}>GM</span>
-              <span style={{ color: C.white, fontSize: "0.5rem" }}>→</span>
-              <span style={{ fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: "0.45rem", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 900 }}>AI Integration+</span>
-            </div>
-
             {/* E — SKY solid / MADSEN outlined on two lines but tighter */}
             <h1 style={{
               fontFamily: "'Arial Black', sans-serif",
@@ -337,7 +330,7 @@ function Experience() {
       bullets: [
         "Fostered relationships with local schools, churches, and first response departments to champion our community, team, and brand."
         ,
-        "Consistently challenge the mindset of my tean and vise versa in order to create a dynamic - collaborative environment.",
+        "Consistently challenge the mindset of my team and vice versa in order to create a dynamic, collaborative environment.",
         "Planned & coordinated public events such as Music Cares, LA Aids Walk, LA Pride Parade, & National Night Out",
         "Established as a trusted peer advisor in some of the most complex markets possible",
       ],
@@ -377,8 +370,8 @@ function Experience() {
         {jobs.map((job, i) => (
           <Reveal key={i} delay={i * 100}>
             <div style={{ marginBottom: i < jobs.length - 1 ? "2rem" : 0, border: `3px solid ${C.ink}`, background: C.white, transition: "border-color 0.2s" }}
-              onMouseOver={e => e.current.style.borderColor = C.green}
-              onMouseOut={e => e.current.style.borderColor = C.ink}
+              onMouseOver={e => e.currentTarget.style.borderColor = C.green}
+              onMouseOut={e => e.currentTarget.style.borderColor = C.ink}
             >
               <div style={{ background: C.ink, padding: isMobile ? "1rem 1.2rem" : "1rem 1.8rem" }}>
                 <div style={{ fontFamily: "'Arial Black', sans-serif", fontSize: isMobile ? "0.78rem" : "0.95rem", color: C.bg, textTransform: "uppercase", fontWeight: 900, lineHeight: 1.3 }}>{job.role}</div>
@@ -575,7 +568,7 @@ function Skills() {
   ];
 
   return (
-    <section a href="#SkillsSection" id="SkillsSection" style={{ background: C.bg, borderTop: `5px solid ${C.ink}` }}>
+    <section id="skills" style={{ background: C.bg, borderTop: `5px solid ${C.ink}` }}>
       <div style={{ background: C.ink, padding: isMobile ? "1.2rem 1.5rem" : "1.5rem 3rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <h2 style={{ fontFamily: "'Arial Black', sans-serif", fontSize: isMobile ? "1.3rem" : "clamp(1.2rem,3vw,2rem)", fontWeight: 900, color: C.bg, textTransform: "uppercase", margin: 0 }}>Skills</h2>
         {!isMobile && <span style={{ fontFamily: "'Arial Black', sans-serif", color: C.muted, fontSize: "0.52rem", letterSpacing: "0.15em", textTransform: "uppercase" }}>  04 — Skills</span>}
@@ -633,7 +626,7 @@ function Contact() {
         <Reveal delay={100}>
           {/* ── UPDATED: contact body copy, centered */}
           <p style={{ fontFamily: "Georgia,serif", color: "#7a7570", fontSize: isMobile ? "0.88rem" : "1rem", lineHeight: 1.75, maxWidth: "820px",textAlign: "center", margin: "0 auto 2rem" }}>
-            I've served 100,xxx's in the last 20+ years in Southern California in brick & mortar locations. I'm now focused on leveraging that experience to help PNW businesses thrive through strategic operational leadership and practical AI integration. If you're looking for a dedicated, experienced leader to drive operational excellence and team success, let's connect.
+            I've served 100,000s in the last 20+ years in Southern California in brick & mortar locations. I'm now focused on leveraging that experience to help PNW businesses thrive through strategic operational leadership and practical AI integration. If you're looking for a dedicated, experienced leader to drive operational excellence and team success, let's connect.
           </p>
         </Reveal>
 
@@ -643,7 +636,7 @@ function Contact() {
             {[
               { label: "LinkedIn", href: "https://linkedin.com/in/moleculardeveloper" },
             
-              { label: "Email", href: "mailto: verifiedbysky@gmail.com" },
+              { label: "Email", href: "mailto:verifiedbysky@gmail.com" },
               { label: "Resume", href:"/Sky_Madsen_Resume.pdf"
               },
             ].map(link => (
