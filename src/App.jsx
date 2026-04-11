@@ -93,7 +93,6 @@ function Nav() {
           <div style={{ width: 32, height: 32, background: C.ink, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
             <span style={{ fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: "0.65rem", fontWeight: 900 }}>SM</span>
           </div>
-          {!isMobile && <span style={{ fontFamily: "'Arial Black', sans-serif", color: C.ink, fontSize: "0.6rem", letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 900 }}>Sky Madsen</span>}
         </a>
 
         {!isMobile && (
@@ -670,6 +669,35 @@ function Contact() {
 }
 
 // ─── APP ──────────────────────────────────────────────────────────────────────
+function BackToTop() {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 400);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return (
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      aria-label="Back to top"
+      style={{
+        position: "fixed", bottom: "1.5rem", right: "1.5rem", zIndex: 200,
+        width: 40, height: 40,
+        background: C.ink, border: `2px solid ${C.green}`,
+        display: "flex", alignItems: "center", justifyContent: "center",
+        cursor: "pointer",
+        opacity: visible ? 1 : 0,
+        pointerEvents: visible ? "auto" : "none",
+        transition: "opacity 0.3s ease",
+      }}
+    >
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <polyline points="2,10 7,4 12,10" stroke={C.bg} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </button>
+  );
+}
+
 export default function App() {
   return (
     <>
@@ -691,6 +719,7 @@ export default function App() {
         }
       `}</style>
       <Nav />
+      <BackToTop />
       <main>
         <Hero />
         <SkillsSection />
