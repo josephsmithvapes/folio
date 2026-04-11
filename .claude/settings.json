@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(node -e ':*)"
+      "Bash(node -e ':*)",
+      "Bash(ls c:/Users/13108/Projects/folio/public/*.png)",
+      "Bash(ls c:/Users/13108/Projects/folio/public/*.jpg)",
+      "Bash(ls c:/Users/13108/Projects/folio/public/*.jpeg)",
+      "Bash(ls c:/Users/13108/Projects/folio/public/*.webp)",
+      "Bash(ls c:/Users/13108/Projects/folio/public/*.pdf)",
+      "Bash(node scripts/optimize-images.js)"
     ]
   }
 }

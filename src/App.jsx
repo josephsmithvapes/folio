@@ -241,7 +241,7 @@ function Hero() {
             {/* background layer — filter isolated here, top offset matches nav height */}
             <div style={{
               position: "absolute", top: "3.5rem", left: 0, right: 0, bottom: 0,
-              backgroundImage: "url('/sky-tree.png')",
+              backgroundImage: "image-set(url('/sky-tree.webp') type('image/webp'), url('/sky-tree.png') type('image/png'))",
               backgroundSize: "cover",
               backgroundPosition: "center top",
               filter: "brightness(0.75) contrast(1.15) grayscale(55%) saturate(2.5)",

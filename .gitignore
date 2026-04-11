@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Generated WebP images (created at build time by scripts/optimize-images.js)
+public/*.webp
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
