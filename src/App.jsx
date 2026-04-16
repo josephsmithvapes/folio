@@ -321,129 +321,93 @@ function Hero() {
 // ─── EXPERIENCE ───────────────────────────────────────────────────────────────
 function Experience() {
   const { isMobile } = useBreakpoint();
-  const jobs = [
+
+  const stats = [
+    { n: "25+", label: "Years Leading" },
+    { n: "30+", label: "Team Built" },
+    { n: "Full", label: "P&L Ownership" },
+    { n: "100K+", label: "Customers Served" },
+  ];
+
+  const chapters = [
     {
-      role: "Coffeehouse Leader — General Manager",
+      era: "2018 – Present",
+      role: "General Manager",
       company: "Starbucks Coffee Company",
-      period: "2018 – Present",
-      loc: "Los Angeles, CA · Drive-Thru",
-      icon: (
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/>
-        </svg>
-      ),
-      bullets: [
-        "Fostered relationships with local schools, churches, and first response departments to champion our community, team, and brand."
-        ,
-        "Consistently challenge the mindset of my team and vice versa in order to create a dynamic, collaborative environment.",
-        "Planned & coordinated public events such as Music Cares, LA Aids Walk, LA Pride Parade, & National Night Out",
-        "Established as a trusted peer advisor in some of the most complex markets possible",
-      ],
+      loc: "Los Angeles, CA · High-Volume Drive-Thru",
+      narrative: "Ran one of LA’s most demanding drive-thru operations — full P&L, 30+ person team, and a reputation as a trusted peer advisor across some of the most complex markets in the country.",
+      outcomes: ["Full P&L Accountability", "Community Partnership", "Peer Advisory", "High-Volume Ops"],
     },
     {
+      era: "2004 – 2018",
       role: "Sales & Operations Leadership",
-      company: "Automotive & Direct-to-Consumer Sales",
-      period: "2004 – 2018",
+      company: "Automotive & Direct-to-Consumer",
       loc: "California · Multi-Location",
-      icon: (
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="12" y1="15" x2="12" y2="22"/><line x1="2" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="22" y2="12"/>
-        </svg>
-      ),
-      bullets: [
-        "20+ years of customer-facing leadership across automotive retail and DTC environments",
-        "Managed full sales cycle, team coaching, and operational efficiency for high-volume floors",
-        "Consistent top-performer recognition across multiple organizations and markets",
-        "Built foundational expertise in people management, pipeline development, and customer experience",
-        "Previous Roles: Web Developer, Internet Sales Manager, Marketing Designer, Manager",
-      ],
+      narrative: "14 years scaling customer-facing operations from the floor up — top performer across automotive retail and DTC, with roles spanning web development, internet sales, marketing, and multi-location management.",
+      outcomes: ["Top Performer", "Full Sales Cycle", "Multi-Location", "Web + Marketing"],
     },
   ];
 
   return (
     <section id="experience" style={{ background: C.bg, borderTop: `5px solid ${C.ink}` }}>
-      {/* ── UPDATED: section header with subtitle */}
       <div style={{ background: C.green, padding: isMobile ? "1.2rem 1.5rem" : "1.5rem 3rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <div>
-          <h2 style={{ fontFamily: "'Arial Black', sans-serif", fontSize: isMobile ? "1.3rem" : "clamp(1.2rem,3vw,2rem)", fontWeight: 900, color: C.bg, textTransform: "uppercase", margin: 0, lineHeight: 1 }}>Experience</h2>
+          <h2 style={{ fontFamily: "’Arial Black’, sans-serif", fontSize: isMobile ? "1.3rem" : "clamp(1.2rem,3vw,2rem)", fontWeight: 900, color: C.bg, textTransform: "uppercase", margin: 0, lineHeight: 1 }}>Experience</h2>
           <p style={{ fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.6)", fontSize: "0.65rem", marginTop: "0.2rem", fontStyle: "italic" }}>The Record</p>
         </div>
-        {!isMobile && <span style={{ fontFamily: "'Arial Black', sans-serif", color: "rgba(242,237,227,0.4)", fontSize: "0.52rem", letterSpacing: "0.15em", textTransform: "uppercase" }}></span>}
       </div>
 
-      <div style={{ padding: isMobile ? "1.5rem" : "3rem" }}>
-        {jobs.map((job, i) => (
+      {/* ── stat bar ── */}
+      <Reveal>
+        <div style={{ background: C.ink, display: "grid", gridTemplateColumns: `repeat(${isMobile ? 2 : 4}, 1fr)`, borderBottom: `3px solid ${C.green}` }}>
+          {stats.map((s, i) => (
+            <div key={s.label} style={{ padding: isMobile ? "1.4rem 1rem" : "1.8rem 2rem", textAlign: "center", borderRight: i < stats.length - 1 ? "1px solid rgba(242,237,227,0.08)" : "none" }}>
+              <div style={{ fontFamily: "’Arial Black’, sans-serif", fontSize: isMobile ? "2rem" : "2.6rem", fontWeight: 900, color: C.bg, lineHeight: 1 }}>{s.n}</div>
+              <div style={{ fontFamily: "Georgia,serif", fontSize: "0.6rem", color: C.muted, textTransform: "uppercase", letterSpacing: "0.12em", marginTop: "0.35rem" }}>{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </Reveal>
+
+      {/* ── chapter cards ── */}
+      <div style={{ padding: isMobile ? "1.5rem" : "3rem", display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "1.5rem" }}>
+        {chapters.map((ch, i) => (
           <Reveal key={i} delay={i * 100}>
-            <div style={{ marginBottom: i < jobs.length - 1 ? "2rem" : 0, border: `3px solid ${C.ink}`, background: C.white, transition: "border-color 0.2s" }}
+            <div style={{ border: `3px solid ${C.ink}`, background: C.white, height: "100%", boxSizing: "border-box", transition: "border-color 0.2s" }}
               onMouseOver={e => e.currentTarget.style.borderColor = C.green}
               onMouseOut={e => e.currentTarget.style.borderColor = C.ink}
             >
-              <div style={{ background: C.ink, padding: isMobile ? "1rem 1.2rem" : "1rem 1.8rem" }}>
-                <div style={{ fontFamily: "'Arial Black', sans-serif", fontSize: isMobile ? "0.78rem" : "0.95rem", color: C.bg, textTransform: "uppercase", fontWeight: 900, lineHeight: 1.3 }}>{job.role}</div>
-                <div style={{ fontFamily: "Georgia,serif", fontSize: "0.72rem", color: C.greenLight, marginTop: "0.3rem" }}>{job.company}</div>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "0.4rem", flexWrap: "wrap", gap: "0.3rem" }}>
-                  <span style={{ fontFamily: "Georgia,serif", fontSize: "0.65rem", color: C.muted }}>{job.loc}</span>
-                  <span style={{ border: `1px solid ${C.greenLight}`, padding: "0.2rem 0.6rem", fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: "0.5rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>{job.period}</span>
-                </div>
+              {/* card header */}
+              <div style={{ background: C.ink, padding: isMobile ? "1rem 1.2rem" : "1.1rem 1.6rem" }}>
+                <div style={{ fontFamily: "’Arial Black’, sans-serif", fontSize: "0.5rem", letterSpacing: "0.2em", color: C.greenLight, textTransform: "uppercase", marginBottom: "0.3rem" }}>{ch.era}</div>
+                <div style={{ fontFamily: "’Arial Black’, sans-serif", fontSize: isMobile ? "0.82rem" : "0.95rem", color: C.bg, textTransform: "uppercase", fontWeight: 900, lineHeight: 1.2 }}>{ch.role}</div>
+                <div style={{ fontFamily: "Georgia,serif", fontSize: "0.7rem", color: "rgba(242,237,227,0.55)", marginTop: "0.25rem" }}>{ch.company} · {ch.loc}</div>
               </div>
-              <div style={{ padding: isMobile ? "1.2rem" : "1.5rem 1.8rem" }}>
-                <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "0.8rem" }}>
-                  {job.bullets.map((b, j) => (
-                    <div key={j} style={{
-                      background: "rgba(45,90,39,0.04)",
-                      border: "1px solid rgba(45,90,39,0.15)",
-                      borderRadius: 4,
-                      padding: "1rem",
-                      fontFamily: "Georgia,serif",
-                      color: "#444",
-                      lineHeight: 1.6,
-                      fontSize: isMobile ? "0.82rem" : "0.9rem"
-                    }}>{b}</div>
+              {/* card body */}
+              <div style={{ padding: isMobile ? "1.2rem" : "1.4rem 1.6rem" }}>
+                <p style={{ fontFamily: "Georgia,serif", fontSize: isMobile ? "0.85rem" : "0.92rem", color: "#3a3a3a", lineHeight: 1.7, margin: "0 0 1.2rem" }}>{ch.narrative}</p>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
+                  {ch.outcomes.map(o => (
+                    <span key={o} style={{ fontFamily: "’Arial Black’, sans-serif", fontSize: "0.42rem", letterSpacing: "0.1em", textTransform: "uppercase", color: C.green, border: `1px solid rgba(45,90,39,0.3)`, padding: "0.22rem 0.55rem", background: C.greenPale }}>{o}</span>
                   ))}
                 </div>
-                {job.icon && (
-                  <div style={{ display: "flex", justifyContent: "center", marginTop: "1.5rem", color: C.muted }}>
-                    {job.icon}
-                  </div>
-                )}
               </div>
             </div>
           </Reveal>
         ))}
-
-        <Reveal delay={150}>
-          <div style={{ margin: isMobile ? "2.5rem auto" : "3.5rem auto", maxWidth: "850px", textAlign: "center", padding: "0 1rem" }}>
-            <p style={{ 
-              fontFamily: "Georgia,serif", 
-              fontSize: isMobile ? "1.05rem" : "1.35rem", 
-              lineHeight: 1.6, 
-              color: C.ink, 
-              fontStyle: "italic" 
-            }}>
-              &quot;With 25 years of leadership in the Southern California market, I specialize in bridging the gap between traditional operations and emerging AI technologies. I aim help small-to-medium businesses reclaim labor hours by strategically integrating AI into their core workflows. I’m looking for a mission-driven team where I can drive immediate operational excellence and measurable ROI.&quot;
-              <br /><br />
-              <span style={{ fontFamily: "'Arial Black', sans-serif", fontSize: isMobile ? "0.8rem" : "0.95rem", fontStyle: "normal" }}>
-                Data driven | Iterative | Rapid
-                <br />
-                - Sky Madsen
-              </span>
-            </p>
-          </div>
-        </Reveal>
-
-        <Reveal delay={200}>
-          <div style={{ marginTop: "1.5rem", border: `3px solid ${C.green}`, background: C.greenPale, padding: isMobile ? "1rem 1.2rem" : "1.3rem 1.8rem", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.8rem" }}>
-            <div>
-              <div style={{ fontFamily: "'Arial Black', sans-serif", color: C.ink, fontSize: isMobile ? "0.78rem" : "0.85rem", textTransform: "uppercase", fontWeight: 900 }}>B.S. Organizational Leadership</div>
-              <div style={{ fontFamily: "Georgia,serif", color: C.green, fontSize: "0.72rem", marginTop: "0.2rem" }}>Arizona State University</div>
-            </div>
-            <div style={{ textAlign: "center" }}>
-              <div style={{ fontFamily: "'Arial Black', sans-serif", color: C.ink, fontSize: isMobile ? "0.78rem" : "0.85rem", textTransform: "uppercase", fontWeight: 900 }}>Google AI Professional</div>
-              <div style={{ fontFamily: "Georgia,serif", color: C.green, fontSize: "0.72rem", marginTop: "0.2rem" }}>Certificate</div>
-            </div>
-          </div>
-        </Reveal>
       </div>
+
+      {/* ── mission quote ── */}
+      <Reveal delay={100}>
+        <div style={{ margin: isMobile ? "0 1.5rem 3.5rem" : "0 3rem 4.5rem", borderLeft: `4px solid ${C.green}`, paddingLeft: isMobile ? "1.2rem" : "2rem" }}>
+          <p style={{ fontFamily: "Georgia,serif", fontSize: isMobile ? "1rem" : "1.2rem", lineHeight: 1.7, color: C.ink, fontStyle: "italic", margin: "0 0 1rem" }}>
+            "With 25 years of leadership in the Southern California market, I specialize in bridging the gap between traditional operations and emerging AI technologies. I help small-to-medium businesses reclaim labor hours by strategically integrating AI into their core workflows."
+          </p>
+          <span style={{ fontFamily: "’Arial Black’, sans-serif", fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: C.muted }}>
+            Data Driven &nbsp;·&nbsp; Iterative &nbsp;·&nbsp; Rapid
+          </span>
+        </div>
+      </Reveal>
     </section>
   );
 }
@@ -452,42 +416,56 @@ function Experience() {
 function Projects() {
   const { isMobile } = useBreakpoint();
 
-  // ── UPDATED: no AI mentions, impact statements added
   const projects = [
     {
       num: "01",
-      name: "Command Center Dashboard",
-      impact: "Built a full personal ops dashboard from a phone",
-      desc: "Full-stack personal operations dashboard. React + Node.js + Vite. Deployed via GitHub Actions CI/CD directly from an Android device. Includes Job Tracker, Housing Tracker, Move Budget, Milestone Tracker, and automated deployment notifications.",
-      tech: ["React", "Node.js", "Vite", "GitHub Actions"],
+      name: "Somebody Stole That",
+      impact: "Peer-to-peer stolen item recovery — built to serve the community",
+      desc: "A reference platform covering fraud schemes, scam patterns, and consumer protection — breaking down how common cons operate and how to recognize, avoid, or respond to them. Built for general awareness and practical help.",
+      tech: ["Community Platform", "React", "Node.js", "Live Site"],
+      url: "somebodystolethat.com",
+      badge: "LIVE",
+      preview: "/preview-sst.jpg",
     },
     {
       num: "02",
-      name: "PNW Relocation Report",
-      impact: "Data-driven decision making before making the move",
-      desc: "10-city relocation analysis comparing LA vs. Pacific Northwest markets across cost of living, job availability, housing, and lifestyle. Built as an interactive presentation with supporting data exports.",
-      tech: ["Data Analysis", "Research", "Visualization"],
-    },
-    {
-      num: "03",
-      name: "Brand + Operational Engineering",
-      impact: "Small business startup engine with brand-building momentum",
-      desc: "A startup-focused business engine designed to accelerate brand discovery, customer engagement, and launch readiness. Live at www.coldbrewboldcrew.com, it combines flexible product positioning, marketing narrative, and community-friendly messaging to support early-stage growth.",
-      tech: ["Branding", "Startup Strategy", "Go-to-Market", "Growth"],
-    },
-    {
-      num: "04",
       name: "AI Integration+",
       impact: "Live platform for practical AI integration + business acceleration",
       desc: "AI Integration+ is a client-facing service platform focused on practical AI adoption, transformation narratives, and clear value pathways. The site at www.aii.coach showcases consulting packages, conversion flows, and real-world modernization messaging.",
       tech: ["AI Strategy", "Platform", "Consulting", "Live Site"],
       url: "www.aii.coach",
+      badge: "LIVE",
+      preview: "/preview-aii.jpg",
+    },
+    {
+      num: "03",
+      name: "The Deschutes Plan",
+      impact: "Real-time ops intelligence for Bend's premier public house",
+      desc: "Live floor data & strategic insights dashboard for Deschutes Brewery's Bend Public House. Tracks table turns, labor %, pours per hour, and inventory alerts in real time — built to demonstrate operations leadership at scale.",
+      tech: ["Operations", "Data Viz", "Dashboard", "Hospitality"],
+      localUrl: "/deschutes-plan/index.html",
+      badge: "DEMO",
+      preview: "/preview-deschutes.jpg",
+    },
+    {
+      num: "04",
+      name: "Career Finder / Move Dashboard",
+      impact: "AI-powered relocation + career intelligence for PNW markets",
+      desc: "Interactive field-notes dashboard mapping PNW job markets, cost of living, and lifestyle data across key relocation targets. Visualizes career opportunities against regional data to support data-driven move decisions.",
+      tech: ["Data Analysis", "Mapping", "Career Intelligence", "React"],
+      badge: "WIP",
+      preview: "/career-finder.jpg",
     },
   ];
 
+  const badgeColors = {
+    LIVE: "#c62828",
+    DEMO: "#1565c0",
+    WIP: "#5d4037",
+  };
+
   return (
     <section id="projects" style={{ background: C.ink, borderTop: `5px solid ${C.green}` }}>
-      {/* ── UPDATED: section header with subtitle */}
       <div style={{ background: C.green, padding: isMobile ? "1.2rem 1.5rem" : "1.5rem 3rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <div>
           <h2 style={{ fontFamily: "'Arial Black', sans-serif", fontSize: isMobile ? "1.3rem" : "clamp(1.2rem,3vw,2rem)", fontWeight: 900, color: C.bg, textTransform: "uppercase", margin: 0, lineHeight: 1 }}>Projects</h2>
@@ -498,61 +476,78 @@ function Projects() {
 
       <div style={{ padding: isMobile ? "1.5rem" : "3rem", display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "1.5rem", alignItems: "stretch" }}>
         {projects.map((p, i) => {
+          const hasLink = p.url || p.localUrl;
+          const href = p.url ? `https://${p.url}` : p.localUrl;
+
           const card = (
             <div
               style={{
                 border: "2px solid rgba(242,237,227,0.12)",
                 background: "rgba(242,237,227,0.03)",
-                padding: "1.8rem",
                 display: "flex",
                 flexDirection: "column",
                 height: "100%",
                 boxSizing: "border-box",
                 transition: "border-color 0.2s, background 0.2s",
-                cursor: p.url ? "pointer" : "default",
-                textAlign: isMobile ? "left" : "center",
+                cursor: hasLink ? "pointer" : "default",
+                overflow: "hidden",
               }}
               onMouseOver={e => { e.currentTarget.style.borderColor = C.greenLight; e.currentTarget.style.background = "rgba(45,90,39,0.12)"; }}
               onMouseOut={e => { e.currentTarget.style.borderColor = "rgba(242,237,227,0.12)"; e.currentTarget.style.background = "rgba(242,237,227,0.03)"; }}
             >
-              {/* num */}
-              <div style={{ fontFamily: "'Arial Black', sans-serif", color: C.green, fontSize: "0.6rem", letterSpacing: "0.25em", marginBottom: "0.6rem" }}>{p.num}</div>
+              {/* ── preview image ── */}
+              <div style={{ position: "relative", height: "175px", overflow: "hidden", flexShrink: 0, background: "#0d0d0d" }}>
+                <img
+                  src={p.preview}
+                  alt={`${p.name} preview`}
+                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block", opacity: 0.88 }}
+                  onError={e => { e.currentTarget.parentNode.style.background = "#111"; e.currentTarget.style.display = "none"; }}
+                />
+                {/* gradient fade into card */}
+                <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "70px", background: "linear-gradient(to top, rgba(26,26,26,1) 0%, rgba(26,26,26,0.6) 60%, transparent 100%)", pointerEvents: "none" }} />
+                {/* badge */}
+                <div style={{ position: "absolute", top: "0.7rem", right: "0.7rem", display: "inline-flex", alignItems: "center", gap: "0.28rem", background: badgeColors[p.badge] || "#333", color: "#fff", fontSize: "0.4rem", letterSpacing: "0.18em", padding: "0.22rem 0.5rem", fontFamily: "'Arial Black', sans-serif", fontWeight: 900 }}>
+                  {p.badge === "LIVE" && <span style={{ width: 5, height: 5, background: "#fff", borderRadius: "50%", display: "inline-block", animation: "livePulse 1.6s ease-in-out infinite" }} />}
+                  {p.badge}
+                </div>
+                {/* num overlay bottom-left */}
+                <div style={{ position: "absolute", bottom: "0.5rem", left: "1rem", fontFamily: "'Arial Black', sans-serif", color: "rgba(242,237,227,0.25)", fontSize: "0.55rem", letterSpacing: "0.25em" }}>{p.num}</div>
+              </div>
 
-              {/* title row */}
-              <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", flexWrap: "wrap", marginBottom: "0.5rem", justifyContent: isMobile ? "flex-start" : "center" }}>
-                <h3 style={{ fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: "0.95rem", textTransform: "uppercase", margin: 0, fontWeight: 900, lineHeight: 1.2 }}>{p.name}</h3>
-                {p.url && (
-                  <span style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", background: "#c62828", color: "#fff", fontSize: "0.42rem", letterSpacing: "0.15em", padding: "0.2rem 0.45rem", flexShrink: 0 }}>
-                    <span style={{ width: 4, height: 4, background: "#fff", borderRadius: "50%", display: "inline-block" }} />
-                    LIVE
-                  </span>
+              {/* ── card body ── */}
+              <div style={{ padding: "1.2rem 1.5rem 1.5rem", display: "flex", flexDirection: "column", flex: 1 }}>
+                {/* title row */}
+                <div style={{ display: "flex", alignItems: "center", gap: "0.55rem", flexWrap: "wrap", marginBottom: "0.45rem" }}>
+                  <h3 style={{ fontFamily: "'Arial Black', sans-serif", color: C.bg, fontSize: "0.9rem", textTransform: "uppercase", margin: 0, fontWeight: 900, lineHeight: 1.2 }}>{p.name}</h3>
+                </div>
+
+                {/* impact */}
+                <p style={{ fontFamily: "Georgia,serif", color: C.greenLight, fontSize: "0.76rem", fontStyle: "italic", margin: "0 0 0.75rem", lineHeight: 1.45 }}>{p.impact}</p>
+
+                {/* desc */}
+                <p style={{ fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.45)", lineHeight: 1.7, fontSize: "0.8rem", margin: "0 0 1.1rem", flex: 1 }}>{p.desc}</p>
+
+                {/* tech tags */}
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
+                  {p.tech.map(t => (
+                    <span key={t} style={{ fontFamily: "'Arial Black', sans-serif", fontSize: "0.42rem", letterSpacing: "0.1em", textTransform: "uppercase", color: C.greenLight, border: "1px solid rgba(61,122,53,0.35)", padding: "0.2rem 0.5rem" }}>{t}</span>
+                  ))}
+                </div>
+
+                {/* url */}
+                {(p.url || p.localUrl) && (
+                  <div style={{ marginTop: "0.75rem", fontFamily: "'Arial Black', sans-serif", fontSize: "0.42rem", letterSpacing: "0.12em", color: "rgba(61,122,53,0.7)", textTransform: "uppercase" }}>
+                    → {p.localUrl ? "View Demo" : "View Site"}
+                  </div>
                 )}
               </div>
-
-              {/* impact */}
-              <p style={{ fontFamily: "Georgia,serif", color: C.greenLight, fontSize: "0.78rem", fontStyle: "italic", margin: "0 0 0.8rem", lineHeight: 1.4 }}>{p.impact}</p>
-
-              {/* desc — flex:1 pushes footer to bottom */}
-              <p style={{ fontFamily: "Georgia,serif", color: "rgba(242,237,227,0.45)", lineHeight: 1.75, fontSize: "0.82rem", margin: "0 0 1.2rem", flex: 1 }}>{p.desc}</p>
-
-              {/* tech tags */}
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", justifyContent: isMobile ? "flex-start" : "center" }}>
-                {p.tech.map(t => (
-                  <span key={t} style={{ fontFamily: "'Arial Black', sans-serif", fontSize: "0.45rem", letterSpacing: "0.1em", textTransform: "uppercase", color: C.greenLight, border: "1px solid rgba(61,122,53,0.35)", padding: "0.2rem 0.5rem" }}>{t}</span>
-                ))}
-              </div>
-
-              {/* url */}
-              {p.url && (
-                <div style={{ marginTop: "0.8rem", fontFamily: "'Arial Black', sans-serif", fontSize: "0.45rem", letterSpacing: "0.12em", color: C.greenLight, textTransform: "uppercase" }}>→ {p.url}</div>
-              )}
             </div>
           );
 
           return (
             <Reveal key={i} delay={i * 80} stretch>
-              {p.url
-                ? <a href={`https://${p.url}`} target="_blank" rel="noreferrer" style={{ display: "block", height: "100%", textDecoration: "none", color: "inherit" }}>{card}</a>
+              {hasLink
+                ? <a href={href} target="_blank" rel="noreferrer" style={{ display: "block", height: "100%", textDecoration: "none", color: "inherit" }}>{card}</a>
                 : card}
             </Reveal>
           );
